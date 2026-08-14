@@ -90,6 +90,7 @@ for `iroas`, `rroi`, `spend`, `ctr`, `cpc`, `picr`, `impression_share`, and chan
 | `roas_iroas_divergence` | genuine gain (both move) vs. spend/mix artifact (ROAS only) |
 | `roas_rroi_divergence` | transient single-month noise vs. sustained shift |
 | `spend_z`, `mix_share_z` | spend-reduction / mix-shift artifacts specifically |
+| `brand_spend_z`, `spend_vs_brand` | budget *reallocated* (total flat) vs. *removed* (total down) |
 | `ctr_z`, `picr_z`, `cpc_z` (sign-flipped) | genuine efficiency gain / creative refresh |
 | `impr_share_z` | survivorship bias (drops with the metric spike) |
 | `brand_coincidence`, `market_coincidence` | external demand vs. brand-specific |
@@ -120,19 +121,22 @@ comparable across causes of differing prevalence:
 
 | cause | events | PR-AUC | base | lift |
 |:---|---:|---:|---:|---:|
-| Survivorship bias | 12 | 0.84 | 0.034 | 24.5x |
-| Creative refresh | 13 | 0.54 | 0.032 | 16.8x |
-| Genuine efficiency gain | 14 | 0.56 | 0.053 | 10.5x |
-| External demand spike | 7 | 0.36 | 0.076 | 4.7x |
-| Spend reduction artifact | 12 | 0.21 | 0.123 | 1.7x |
-| **Mix shift artifact** | **8** | **0.15** | **0.154** | **0.95x** |
+| Survivorship bias | 12 | 0.82 | 0.049 | 16.9x |
+| Creative refresh | 13 | 0.59 | 0.046 | 13.0x |
+| Genuine efficiency gain | 14 | 0.64 | 0.076 | 8.5x |
+| External demand spike | 7 | 0.46 | 0.108 | 4.2x |
+| Spend reduction artifact | 12 | 0.50 | 0.175 | 2.9x |
+| Mix shift artifact | 8 | 0.48 | 0.219 | 2.2x |
 
-Top-1 hit rate is 0.47. Four causes carry strong signal; spend-reduction is weak;
-**mix-shift has learned nothing** - it sits at its own base rate. That is diagnostic, not noise:
-the two weak causes are exactly the two that move budget without touching quality. The model
-separates budget mechanics from genuine gains reliably, but cannot tell the two budget causes
-apart. Fixing it needs more events, or a feature separating them directly - whether *other*
-channels absorbed the budget, which mix shift implies and a pure cut does not.
+Top-1 hit rate is 0.55 and every cause clears its base rate, which took two fixes worth naming -
+the first version failed on exactly the causes that move budget without touching quality.
+**Negatives are drawn from flagged-but-unlabeled months, not the panel at large**: the model only
+runs on what the detector flagged, so training against quiet months taught it the easier question
+("is this month unusual?") instead of the real one ("it is unusual - why?"). And **brand-total
+spend** was missing: with only channel spend and share, nothing separates budget *reallocated*
+(mix shift, total flat) from *removed* (spend cut, total down). Before both, mix shift scored
+0.95x - at chance. Base rates are higher here because discriminating within flagged months is the
+harder, production-realistic task; lift, not raw PR-AUC, is the number to read.
 
 The synthetic-label model is only a cold start; the production evaluation loop is
 analyst-agreement rate over time (see *Productionisation*).
@@ -159,8 +163,8 @@ experiment (geo holdout, PSA test) or a validated MMM counterfactual - neither r
 **Monitoring:** analyst agreement rate on attribution (the real accuracy proxy); feature drift on
 leading indicators (PSI/KS, monthly); alert-volume drift (a jump in flag rate is itself worth
 investigating); rolling Brier score and lift-over-base per cause,
-so a cause degrading to chance (as mix shift already has) surfaces automatically instead of
-looking authoritative. **Cold start:** exercised here (one brand
+so a cause degrading toward chance surfaces instead of looking authoritative -
+mix shift sat at 0.95x before the fixes above and would have shipped silently. **Cold start:** exercised here (one brand
 launches mid-panel) - new brand-channels borrow the peer trend and sigma until a 3-month
 own-history floor. Next step, not built: cluster brands into spend/mix archetypes so new brands
 borrow from the nearest archetype rather than the full pool.
@@ -170,9 +174,8 @@ how the synthetic-label cold start gets replaced by real signal.
 ## 8. Limits - where this breaks
 
 The simulator's assumptions are the ceiling: if real response curves, seasonality, or confounding
-differ materially, both models need re-validation first. The functional gap is the one in
-*Evaluation* - the system cannot separate the two budget-mechanics causes from each other, only
-from genuine gains. Short-history brands underperform on peer priors that may not fit, and the
+differ materially, both models need re-validation first. The weakest components are the two budget-mechanics causes: both clear
+their base rate (2.2-2.9x) but trail the quality-driven causes badly, on 8-12 events. Short-history brands underperform on peer priors that may not fit, and the
 causal seasonal index is blind for a panel's first 12 months. Attribution has no "none of the
 above": a driver outside the taxonomy (competitor stockout, macro shock) yields uniformly low
 probabilities, surfaced as "flagged, unexplained." Forecasting isn't built - it needs planned

@@ -71,6 +71,22 @@ def build_feature_table(panel: pd.DataFrame, detector_scored: pd.DataFrame) -> p
     )
     feat = feat.merge(share_scored, on=keys, how="left")
 
+    # Brand-level total spend, scored on the same machinery. This is the feature that separates
+    # the two budget-mechanics causes: a mix shift REALLOCATES budget (channel share moves, brand
+    # total flat), a spend cut REMOVES it (channel and brand total both fall). Without it the
+    # model sees only channel spend and channel share and cannot tell the two apart - measured
+    # at chance for mix_shift before this was added.
+    brand_total = panel.groupby(["brand", "month"], as_index=False)["spend"].sum()
+    brand_total = brand_total.merge(
+        panel[["brand", "month", "month_idx"]].drop_duplicates(), on=["brand", "month"]
+    )
+    brand_total["channel"] = "_BRAND_TOTAL_"  # build_scores groups on (brand, channel)
+    brand_z = build_scores(brand_total, metric="spend")[["brand", "month", "sudden_z"]].rename(
+        columns={"sudden_z": "brand_spend_z"}
+    )
+    feat = feat.merge(brand_z, on=["brand", "month"], how="left")
+    feat["spend_vs_brand"] = feat["spend_z"] - feat["brand_spend_z"]  # channel move net of brand move
+
     # Co-movement: is this brand-channel's move part of a broader pattern? Deliberately uses a
     # fixed 1z bar rather than the detector's tuned operating threshold - this measures "did
     # things move together", which should not shift every time the alert threshold is retuned
@@ -103,20 +119,40 @@ FEATURE_COLS = [
     "roas_sudden_z", "roas_gradual_z", "iroas_z", "rroi_z", "spend_z",
     "ctr_z", "cpc_z_signed_good", "picr_z", "impr_share_z",
     "roas_iroas_divergence", "roas_rroi_divergence", "mix_share_z",
+    "brand_spend_z", "spend_vs_brand",
     "shape_sudden", "brand_coincidence", "market_coincidence",
 ]
 
 
 def build_training_set(feat: pd.DataFrame, labels_df: pd.DataFrame, panel: pd.DataFrame,
                         rng: np.random.Generator) -> pd.DataFrame:
+    """
+    Positives are every labeled anomaly-month; negatives are drawn from **flagged but unlabeled**
+    months, not from the panel at large.
+
+    That matters because the attribution model only ever runs on what the detector flagged, and
+    most of those months (at precision ~0.36) have no injected cause. Training the negative class
+    on quiet months taught it to answer an easier question than the one it faces in production -
+    "is this month unusual?" rather than "this month is unusual, why?". Sampling negatives from
+    the serving population fixed the skew: mix_shift went from 0.95x lift (chance) to 2.2x, and
+    no cause is left at chance. Base rates rise accordingly, which is why `lift_over_base` rather
+    than raw PR-AUC is the metric to read.
+
+    Positives are NOT restricted to flagged months. Doing so is a stricter serving match but
+    discards ~37% of an already tiny label set, and measured worse on every weak cause.
+    """
     keys = ["brand", "channel", "month"]
     positives = feat.merge(labels_df, on=keys, how="inner")
     for c in CAUSE_TYPES:
         positives[c] = positives[c].fillna(0.0)
 
     labeled_keys = set(map(tuple, labels_df[keys].values))
+    flagged_keys = set(map(tuple, feat.loc[feat["flagged"] == True, keys].values))  # noqa: E712
     all_keys = feat[keys].drop_duplicates()
-    bg_pool = all_keys[~all_keys.apply(tuple, axis=1).isin(labeled_keys)]
+    as_tuples = all_keys.apply(tuple, axis=1)
+    bg_pool = all_keys[~as_tuples.isin(labeled_keys) & as_tuples.isin(flagged_keys)]
+    if bg_pool.empty:  # detector flagged nothing unlabeled; fall back to the wider panel
+        bg_pool = all_keys[~as_tuples.isin(labeled_keys)]
     n_bg = min(len(bg_pool), max(len(positives) * 2, 120))
     bg_sample = bg_pool.sample(n=n_bg, random_state=int(rng.integers(0, 1_000_000)))
     negatives = feat.merge(bg_sample, on=keys, how="inner")
