@@ -1,12 +1,12 @@
-Aster Wellness / digital_video / 2024-04: ROAS moved +1.1 robust std. devs vs. expected (gradual, multi-month pattern).
+Aster Wellness / digital_video / 2024-04: ROAS moved +1.1 robust std. devs vs. expected (sudden, single-month pattern).
   Most likely drivers -
   - external demand spike (97% likely, 89% of the explained signal): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver
   - spend reduction artifact (7% likely, 7% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
 
-Aster Wellness / display / 2025-02: ROAS moved -1.1 robust std. devs vs. expected (sudden, single-month pattern).
+Aster Wellness / display / 2025-02: ROAS moved -1.1 robust std. devs vs. expected (gradual, multi-month pattern).
   Downward move - the cause taxonomy in this model covers drivers of metric *increases* only, so no attribution is offered. Route to the standard performance-decline review instead.
 
-Aster Wellness / paid_search / 2023-02: ROAS moved +1.0 robust std. devs vs. expected (gradual, multi-month pattern).
+Aster Wellness / paid_search / 2023-02: ROAS moved +1.0 robust std. devs vs. expected (sudden, single-month pattern).
   Most likely drivers -
   - mix shift artifact (58% likely, 53% of the explained signal): this channel's share of the brand's total budget moved sharply - the metric change may reflect reallocation, not improvement
   - spend reduction artifact (50% likely, 46% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
@@ -32,7 +32,7 @@ Crestline Beverages / tv / 2023-07: ROAS moved +0.6 robust std. devs vs. expecte
   - spend reduction artifact (45% likely, 64% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
   - mix shift artifact (24% likely, 34% of the explained signal): this channel's share of the brand's total budget moved sharply - the metric change may reflect reallocation, not improvement
 
-Halcyon Personal Care / paid_search / 2024-02: ROAS moved +1.1 robust std. devs vs. expected (gradual, multi-month pattern).
+Halcyon Personal Care / paid_search / 2024-02: ROAS moved +1.1 robust std. devs vs. expected (sudden, single-month pattern).
   No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
   Closest match was mix shift artifact at 21%, below the 25% confidence bar.
 

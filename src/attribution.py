@@ -38,6 +38,7 @@ from data_generator import CAUSE_TYPES
 
 PRESENCE_THRESHOLD = 0.20  # a cause's synthetic label weight must clear this to count as "present"
 N_FOLDS = 5
+CO_MOVEMENT_Z = 1.0  # bar for "this month moved" when measuring brand/market co-movement
 
 
 def _z_col(panel: pd.DataFrame, metric: str, colname: str) -> pd.DataFrame:
@@ -70,8 +71,11 @@ def build_feature_table(panel: pd.DataFrame, detector_scored: pd.DataFrame) -> p
     )
     feat = feat.merge(share_scored, on=keys, how="left")
 
-    # co-movement: is this brand-channel's anomaly part of a broader pattern?
-    alerty = detector_scored.assign(is_alert=detector_scored["alert_score"] >= 1.0)
+    # Co-movement: is this brand-channel's move part of a broader pattern? Deliberately uses a
+    # fixed 1z bar rather than the detector's tuned operating threshold - this measures "did
+    # things move together", which should not shift every time the alert threshold is retuned
+    # for a different FP/FN cost. Kept as a named constant so it is a choice, not a stray literal.
+    alerty = detector_scored.assign(is_alert=detector_scored["alert_score"] >= CO_MOVEMENT_Z)
     brand_month_alert_rate = (
         alerty.groupby(["brand", "month"])
         .apply(lambda g: pd.Series({"n_alert": g["is_alert"].sum(), "n_total": len(g)}), include_groups=False)
@@ -240,9 +244,18 @@ def narrate(row: pd.Series, dist: pd.DataFrame, top_k: int = 2, confident_at: fl
        caller scores with direction="both" and pipes the result through here anyway.
     2. Honest uncertainty. If no cause clears `confident_at`, the output says so rather than
        ranking six weak guesses as if the top one meant something.
+
+    The displayed shape comes from the detector's `alert_source` - the signal that actually
+    fired - not from the `shape_sudden` model feature, which compares |sudden_z| to |gradual_z|
+    and disagrees with the firing signal on ~13% of flagged months. Telling an analyst
+    "sudden, single-month" when the alert came from the 3-month ramp sends them to the wrong
+    part of the chart.
     """
     z = float(row.get("roas_sudden_z", np.nan))
-    shape = "sudden, single-month" if row.get("shape_sudden", 1) == 1 else "gradual, multi-month"
+    source = row.get("alert_source")
+    if source not in ("sudden", "gradual"):  # fall back for callers without detector output
+        source = "sudden" if row.get("shape_sudden", 1) == 1 else "gradual"
+    shape = "sudden, single-month" if source == "sudden" else "gradual, multi-month"
     header = (f"{row['brand']} / {row['channel']} / {row['month']}: ROAS moved {z:+.1f} "
               f"robust std. devs vs. expected ({shape} pattern).")
 
