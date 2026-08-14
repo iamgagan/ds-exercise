@@ -1,0 +1,63 @@
+event_id,brand,channels,scope,start_month,end_month,shape,causes
+0,Solstice Foods,"tv,paid_search,social,display,digital_video,retail_media,affiliate",brand_wide,2024-09,2024-11,gradual,mix_shift_artifact:1.00
+1,Solstice Foods,"digital_video,social",channel,2023-09,2023-09,sudden,creative_refresh:1.00
+2,Solstice Foods,"tv,paid_search,social,display,digital_video,retail_media,affiliate",brand_wide,2023-07,2023-09,gradual,external_demand_spike:1.00
+3,Solstice Foods,"retail_media,display",channel,2025-01,2025-03,gradual,creative_refresh:1.00
+4,Solstice Foods,"affiliate,paid_search",channel,2025-07,2025-09,gradual,genuine_efficiency_gain:1.00
+5,Solstice Foods,"affiliate,tv",channel,2023-05,2023-05,sudden,survivorship_bias:1.00
+6,Solstice Foods,"tv,paid_search,social,display,digital_video,retail_media,affiliate",brand_wide,2023-12,2023-12,sudden,external_demand_spike:1.00
+7,Solstice Foods,"tv,paid_search,social,display,digital_video,retail_media,affiliate",brand_wide,2023-09,2023-11,gradual,mix_shift_artifact:1.00
+8,Solstice Foods,"affiliate,paid_search",channel,2025-03,2025-05,gradual,genuine_efficiency_gain:1.00
+0,Nimbus Home,"social,retail_media",channel,2024-12,2024-12,sudden,survivorship_bias:1.00
+1,Nimbus Home,"paid_search,digital_video",channel,2024-01,2024-01,sudden,survivorship_bias:1.00
+2,Nimbus Home,display,channel,2025-06,2025-08,gradual,genuine_efficiency_gain:1.00
+3,Nimbus Home,digital_video,channel,2025-01,2025-03,gradual,genuine_efficiency_gain:1.00
+4,Nimbus Home,"digital_video,retail_media",channel,2025-06,2025-06,sudden,creative_refresh:1.00
+5,Nimbus Home,"display,paid_search,social,digital_video,audio,retail_media",brand_wide,2024-03,2024-03,sudden,external_demand_spike:1.00
+0,Verdant Snacks,"social,paid_search,digital_video,retail_media,affiliate,display",brand_wide,2024-05,2024-05,sudden,external_demand_spike:1.00
+1,Verdant Snacks,"display,social",channel,2023-10,2023-10,sudden,creative_refresh:1.00
+2,Verdant Snacks,"social,paid_search,digital_video,retail_media,affiliate,display",brand_wide,2023-03,2023-05,gradual,spend_reduction_artifact:0.46;mix_shift_artifact:0.54
+3,Verdant Snacks,"display,affiliate",channel,2023-12,2023-12,sudden,creative_refresh:1.00
+4,Verdant Snacks,"social,paid_search,digital_video,retail_media,affiliate,display",brand_wide,2024-01,2024-01,sudden,mix_shift_artifact:1.00
+5,Verdant Snacks,"display,paid_search",channel,2024-04,2024-06,gradual,spend_reduction_artifact:1.00
+6,Verdant Snacks,digital_video,channel,2024-03,2024-03,sudden,survivorship_bias:1.00
+7,Verdant Snacks,"social,paid_search,digital_video,retail_media,affiliate,display",brand_wide,2024-08,2024-10,gradual,spend_reduction_artifact:0.58;mix_shift_artifact:0.42
+8,Verdant Snacks,"social,digital_video",channel,2024-03,2024-05,gradual,genuine_efficiency_gain:1.00
+0,Crestline Beverages,audio,channel,2023-12,2023-12,sudden,spend_reduction_artifact:1.00
+1,Crestline Beverages,"tv,ooh,paid_search,social,digital_video,retail_media,audio,affiliate",brand_wide,2023-08,2023-08,sudden,spend_reduction_artifact:0.47;mix_shift_artifact:0.53
+2,Crestline Beverages,"paid_search,affiliate",channel,2023-05,2023-05,sudden,spend_reduction_artifact:1.00
+3,Crestline Beverages,audio,channel,2025-04,2025-06,gradual,genuine_efficiency_gain:1.00
+4,Crestline Beverages,"tv,ooh,paid_search,social,digital_video,retail_media,audio,affiliate",brand_wide,2023-07,2023-09,gradual,spend_reduction_artifact:0.59;mix_shift_artifact:0.41
+5,Crestline Beverages,affiliate,channel,2024-11,2025-01,gradual,genuine_efficiency_gain:0.67;creative_refresh:0.33
+6,Crestline Beverages,"tv,ooh",channel,2024-08,2024-10,gradual,genuine_efficiency_gain:1.00
+7,Crestline Beverages,social,channel,2024-03,2024-03,sudden,survivorship_bias:1.00
+0,Halcyon Personal Care,"retail_media,digital_video",channel,2025-03,2025-03,sudden,spend_reduction_artifact:1.00
+1,Halcyon Personal Care,affiliate,channel,2024-05,2024-05,sudden,spend_reduction_artifact:1.00
+2,Halcyon Personal Care,"social,affiliate",channel,2024-03,2024-03,sudden,creative_refresh:1.00
+3,Halcyon Personal Care,"social,paid_search",channel,2025-11,2025-11,sudden,survivorship_bias:1.00
+4,Halcyon Personal Care,"affiliate,retail_media",channel,2024-10,2024-12,gradual,survivorship_bias:1.00
+5,Halcyon Personal Care,"display,retail_media",channel,2025-09,2025-09,sudden,genuine_efficiency_gain:1.00
+0,Ridgeway Grocery,affiliate,channel,2024-08,2024-10,gradual,genuine_efficiency_gain:1.00
+1,Ridgeway Grocery,"display,paid_search",channel,2023-05,2023-07,gradual,survivorship_bias:1.00
+2,Ridgeway Grocery,social,channel,2023-04,2023-04,sudden,survivorship_bias:1.00
+3,Ridgeway Grocery,tv,channel,2025-02,2025-02,sudden,survivorship_bias:1.00
+4,Ridgeway Grocery,audio,channel,2023-05,2023-07,gradual,creative_refresh:1.00
+5,Ridgeway Grocery,"tv,paid_search,social,display,retail_media,affiliate,audio",brand_wide,2023-11,2023-11,sudden,external_demand_spike:1.00
+6,Ridgeway Grocery,"audio,display",channel,2023-11,2023-11,sudden,survivorship_bias:1.00
+7,Ridgeway Grocery,"affiliate,retail_media",channel,2024-01,2024-01,sudden,genuine_efficiency_gain:0.40;creative_refresh:0.60
+8,Ridgeway Grocery,retail_media,channel,2025-04,2025-04,sudden,spend_reduction_artifact:1.00
+0,Aster Wellness,social,channel,2023-02,2023-02,sudden,creative_refresh:1.00
+1,Aster Wellness,"social,paid_search,digital_video,display,retail_media,audio",brand_wide,2023-02,2023-04,gradual,spend_reduction_artifact:0.46;mix_shift_artifact:0.54
+2,Aster Wellness,"social,audio",channel,2025-07,2025-07,sudden,creative_refresh:1.00
+3,Aster Wellness,display,channel,2024-11,2025-01,gradual,genuine_efficiency_gain:1.00
+4,Aster Wellness,"social,paid_search,digital_video,display,retail_media,audio",brand_wide,2024-04,2024-04,sudden,external_demand_spike:1.00
+5,Aster Wellness,digital_video,channel,2025-07,2025-07,sudden,creative_refresh:1.00
+0,Pinebrook Pet Co.,"social,paid_search,display,retail_media,affiliate,digital_video",brand_wide,2025-03,2025-05,gradual,spend_reduction_artifact:0.77;mix_shift_artifact:0.23
+1,Pinebrook Pet Co.,"display,affiliate",channel,2025-01,2025-01,sudden,creative_refresh:1.00
+2,Pinebrook Pet Co.,display,channel,2025-03,2025-03,sudden,spend_reduction_artifact:1.00
+3,Pinebrook Pet Co.,"social,digital_video",channel,2025-08,2025-10,gradual,spend_reduction_artifact:1.00
+4,Pinebrook Pet Co.,retail_media,channel,2024-12,2025-02,gradual,genuine_efficiency_gain:1.00
+5,Pinebrook Pet Co.,"digital_video,paid_search",channel,2025-03,2025-05,gradual,survivorship_bias:1.00
+6,Pinebrook Pet Co.,"social,paid_search,display,retail_media,affiliate,digital_video",brand_wide,2025-08,2025-10,gradual,external_demand_spike:1.00
+7,Pinebrook Pet Co.,digital_video,channel,2025-11,2025-11,sudden,genuine_efficiency_gain:1.00
+8,Pinebrook Pet Co.,"social,paid_search,display,retail_media,affiliate,digital_video",brand_wide,2025-03,2025-05,gradual,mix_shift_artifact:1.00
