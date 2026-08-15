@@ -71,16 +71,30 @@ def build_feature_table(panel: pd.DataFrame, detector_scored: pd.DataFrame) -> p
     )
     feat = feat.merge(share_scored, on=keys, how="left")
 
-    # Brand-level total spend, scored on the same machinery. This is the feature that separates
-    # the two budget-mechanics causes: a mix shift REALLOCATES budget (channel share moves, brand
-    # total flat), a spend cut REMOVES it (channel and brand total both fall). Without it the
-    # model sees only channel spend and channel share and cannot tell the two apart - measured
-    # at chance for mix_shift before this was added.
-    brand_total = panel.groupby(["brand", "month"], as_index=False)["spend"].sum()
+    # Brand-level total spend, scored on the same machinery: a spend cut REMOVES budget (channel
+    # and brand total both fall) where a mix shift only REALLOCATES it (channel share moves,
+    # brand total flat).
+    #
+    # What this actually buys, measured over 5 CV seeds with both classes correctly restricted to
+    # flagged months: spend_reduction 2.81 -> 3.18 lift (beyond seed noise), external_demand
+    # 3.79 -> 4.18 (within noise), and mix_shift 1.00 -> 0.87 - i.e. it helps the "budget removed"
+    # signature and does NOT rescue mix shift, which stays at chance either way. An earlier
+    # version of this comment claimed it fixed mix shift; that claim came from a leaked
+    # evaluation and does not survive a correct one.
+    # Two subtleties, both of which bit an earlier version:
+    #   min_count=1 - the panel has reporting gaps, and a plain sum() treats a missing channel as
+    #   zero spend. That fabricates exactly the "budget removed" signature this feature exists to
+    #   detect (brand-months with a missing channel averaged -0.8z vs +0.1z for clean ones), and
+    #   an all-missing month summed to 0.0 and became a log-clipped -13.8 residual. Propagate NaN.
+    #   Per-brand channel key - build_scores falls back to a same-"channel" peer mean while a
+    #   series has <3 own observations. With one shared key that peer is the mean across brands
+    #   whose totals span 27x, so small or late-launching brands scored |z| of 5-7 for being
+    #   small rather than for changing. Keying per brand confines the fallback to that brand.
+    brand_total = panel.groupby(["brand", "month"], as_index=False)["spend"].sum(min_count=1)
     brand_total = brand_total.merge(
         panel[["brand", "month", "month_idx"]].drop_duplicates(), on=["brand", "month"]
     )
-    brand_total["channel"] = "_BRAND_TOTAL_"  # build_scores groups on (brand, channel)
+    brand_total["channel"] = "_TOTAL_" + brand_total["brand"]
     brand_z = build_scores(brand_total, metric="spend")[["brand", "month", "sudden_z"]].rename(
         columns={"sudden_z": "brand_spend_z"}
     )
@@ -127,27 +141,26 @@ FEATURE_COLS = [
 def build_training_set(feat: pd.DataFrame, labels_df: pd.DataFrame, panel: pd.DataFrame,
                         rng: np.random.Generator) -> pd.DataFrame:
     """
-    Positives are every labeled anomaly-month; negatives are drawn from **flagged but unlabeled**
-    months, not from the panel at large.
+    Training population = the serving population = months the detector flagged. **Both** classes
+    are restricted; restricting only one is a label leak, not a fix.
 
-    That matters because the attribution model only ever runs on what the detector flagged, and
-    most of those months (at precision ~0.36) have no injected cause. Training the negative class
-    on quiet months taught it to answer an easier question than the one it faces in production -
-    "is this month unusual?" rather than "this month is unusual, why?". Sampling negatives from
-    the serving population fixed the skew: mix_shift went from 0.95x lift (chance) to 2.2x, and
-    no cause is left at chance. Base rates rise accordingly, which is why `lift_over_base` rather
-    than raw PR-AUC is the metric to read.
-
-    Positives are NOT restricted to flagged months. Doing so is a stricter serving match but
-    discards ~37% of an already tiny label set, and measured worse on every weak cause.
+    An earlier version restricted negatives to flagged months but kept every labeled positive,
+    reasoning that discarding ~37% of a tiny label set was too expensive. That was wrong. It left
+    37.5% of positives unflagged against 0% of negatives, and since `roas_sudden_z` and
+    `roas_gradual_z` are features and `flagged` is a threshold on them, a tree could read
+    "below the detector threshold" as "guaranteed positive". The shortcut alone - predicting from
+    unflagged-ness and nothing else - scored 2.33x lift on mix_shift, i.e. the whole of that
+    version's headline 2.21x. Restricting both classes returns mix_shift to ~1.2x, which is the
+    honest number: it remains at chance, and is reported that way.
     """
     keys = ["brand", "channel", "month"]
+    flagged_keys = set(map(tuple, feat.loc[feat["flagged"] == True, keys].values))  # noqa: E712
     positives = feat.merge(labels_df, on=keys, how="inner")
+    positives = positives[positives.apply(lambda r: (r["brand"], r["channel"], r["month"]) in flagged_keys, axis=1)]
     for c in CAUSE_TYPES:
         positives[c] = positives[c].fillna(0.0)
 
     labeled_keys = set(map(tuple, labels_df[keys].values))
-    flagged_keys = set(map(tuple, feat.loc[feat["flagged"] == True, keys].values))  # noqa: E712
     all_keys = feat[keys].drop_duplicates()
     as_tuples = all_keys.apply(tuple, axis=1)
     bg_pool = all_keys[~as_tuples.isin(labeled_keys) & as_tuples.isin(flagged_keys)]
