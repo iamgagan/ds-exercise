@@ -1,63 +1,60 @@
-Aster Wellness / digital_video / 2024-04: ROAS moved +1.1 robust std. devs vs. expected (sudden, single-month pattern).
+Aster Wellness / audio / 2025-05: alert score +2.0 robust std. devs vs. expected (sudden, single-month pattern).
   Most likely drivers -
-  - external demand spike (96% likely, 97% of the explained signal): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver
-  - spend reduction artifact (2% likely, 2% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
+  - creative refresh (75% calibrated likelihood): CTR/PICR jumped sharply and suddenly (1-month pattern) - consistent with a creative refresh rather than a durable gain
+  - genuine efficiency gain (35% calibrated likelihood): leading indicators improved broadly (CTR/PICR up, spend roughly flat) - consistent with a genuine efficiency gain
 
-Aster Wellness / display / 2025-02: ROAS moved -1.1 robust std. devs vs. expected (gradual, multi-month pattern).
-  Downward move - the cause taxonomy in this model covers drivers of metric *increases* only, so no attribution is offered. Route to the standard performance-decline review instead.
+Aster Wellness / audio / 2025-06: alert score +0.9 robust std. devs vs. expected (gradual, multi-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 13%, below the 25% confidence bar.
 
-Aster Wellness / paid_search / 2023-02: ROAS moved +1.0 robust std. devs vs. expected (sudden, single-month pattern).
+Aster Wellness / social / 2024-02: alert score +1.0 robust std. devs vs. expected (gradual, multi-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 10%, below the 25% confidence bar.
+
+Crestline Beverages / audio / 2023-12: alert score +0.7 robust std. devs vs. expected (gradual, multi-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 6%, below the 25% confidence bar.
+
+Halcyon Personal Care / social / 2024-05: alert score +0.5 robust std. devs vs. expected (gradual, multi-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 7%, below the 25% confidence bar.
+
+Nimbus Home / paid_search / 2023-04: alert score +1.1 robust std. devs vs. expected (gradual, multi-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 7%, below the 25% confidence bar.
+
+Ridgeway Grocery / audio / 2024-07: alert score +0.9 robust std. devs vs. expected (gradual, multi-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 5%, below the 25% confidence bar.
+
+Ridgeway Grocery / retail_media / 2023-09: alert score +1.6 robust std. devs vs. expected (sudden, single-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 12%, below the 25% confidence bar.
+
+Ridgeway Grocery / social / 2023-06: alert score +2.9 robust std. devs vs. expected (sudden, single-month pattern).
   Most likely drivers -
-  - mix shift artifact (53% likely, 50% of the explained signal): this channel's share of the brand's total budget moved sharply - the metric change may reflect reallocation, not improvement
-  - spend reduction artifact (53% likely, 50% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
+  - external demand spike (89% calibrated likelihood): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver
 
-Aster Wellness / retail_media / 2024-01: ROAS moved +0.7 robust std. devs vs. expected (sudden, single-month pattern).
-  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was mix shift artifact at 3%, below the 25% confidence bar.
-
-Aster Wellness / social / 2024-08: ROAS moved +0.6 robust std. devs vs. expected (sudden, single-month pattern).
-  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was mix shift artifact at 1%, below the 25% confidence bar.
-
-Crestline Beverages / affiliate / 2023-11: ROAS moved +0.9 robust std. devs vs. expected (sudden, single-month pattern).
-  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was spend reduction artifact at 3%, below the 25% confidence bar.
-
-Crestline Beverages / social / 2025-11: ROAS moved +1.6 robust std. devs vs. expected (sudden, single-month pattern).
-  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was mix shift artifact at 2%, below the 25% confidence bar.
-
-Crestline Beverages / tv / 2023-07: ROAS moved +0.6 robust std. devs vs. expected (sudden, single-month pattern).
+Ridgeway Grocery / social / 2024-04: alert score +0.7 robust std. devs vs. expected (sudden, single-month pattern).
   Most likely drivers -
-  - mix shift artifact (55% likely, 53% of the explained signal): this channel's share of the brand's total budget moved sharply - the metric change may reflect reallocation, not improvement
-  - spend reduction artifact (47% likely, 45% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
+  - mix shift artifact (39% calibrated likelihood): this channel's share of the brand's total budget moved sharply - the metric change may reflect reallocation, not improvement
 
-Halcyon Personal Care / paid_search / 2024-02: ROAS moved +1.1 robust std. devs vs. expected (sudden, single-month pattern).
+Solstice Foods / retail_media / 2023-08: alert score +0.8 robust std. devs vs. expected (gradual, multi-month pattern).
   No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was spend reduction artifact at 7%, below the 25% confidence bar.
+  Closest match was external demand spike at 7%, below the 25% confidence bar.
 
-Pinebrook Pet Co. / digital_video / 2025-10: ROAS moved +1.5 robust std. devs vs. expected (sudden, single-month pattern).
-  Most likely drivers -
-  - external demand spike (94% likely, 51% of the explained signal): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver
-  - spend reduction artifact (85% likely, 47% of the explained signal): spend fell while leading indicators were flat - the ROAS move looks like it tracks a budget cut more than a quality change
-
-Solstice Foods / affiliate / 2023-05: ROAS moved +2.8 robust std. devs vs. expected (sudden, single-month pattern).
-  Most likely drivers -
-  - survivorship bias (99% likely, 87% of the explained signal): impression share dropped alongside the metric spike - underperforming placements may have simply stopped reporting
-  - external demand spike (11% likely, 10% of the explained signal): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver
-
-Solstice Foods / paid_search / 2025-06: ROAS moved -0.6 robust std. devs vs. expected (gradual, multi-month pattern).
-  Downward move - the cause taxonomy in this model covers drivers of metric *increases* only, so no attribution is offered. Route to the standard performance-decline review instead.
-
-Solstice Foods / tv / 2023-05: ROAS moved +3.5 robust std. devs vs. expected (sudden, single-month pattern).
-  Most likely drivers -
-  - survivorship bias (99% likely, 86% of the explained signal): impression share dropped alongside the metric spike - underperforming placements may have simply stopped reporting
-  - external demand spike (13% likely, 11% of the explained signal): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver
-
-Verdant Snacks / digital_video / 2023-10: ROAS moved +1.4 robust std. devs vs. expected (sudden, single-month pattern).
+Solstice Foods / social / 2025-04: alert score +0.6 robust std. devs vs. expected (gradual, multi-month pattern).
   No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was mix shift artifact at 5%, below the 25% confidence bar.
+  Closest match was external demand spike at 6%, below the 25% confidence bar.
 
-Verdant Snacks / display / 2024-02: ROAS moved +0.9 robust std. devs vs. expected (gradual, multi-month pattern).
+Verdant Snacks / affiliate / 2025-12: alert score +0.6 robust std. devs vs. expected (sudden, single-month pattern).
   No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
-  Closest match was mix shift artifact at 4%, below the 25% confidence bar.
+  Closest match was external demand spike at 6%, below the 25% confidence bar.
+
+Verdant Snacks / display / 2023-02: alert score +0.5 robust std. devs vs. expected (sudden, single-month pattern).
+  No cause clears a confident threshold. Treat this as 'flagged, unexplained' - the driver may sit outside the six-cause taxonomy (competitor action, macro shift, a reporting change). Worth an analyst's eyes before it goes in the monthly narrative.
+  Closest match was external demand spike at 10%, below the 25% confidence bar.
+
+Verdant Snacks / retail_media / 2023-06: alert score +2.4 robust std. devs vs. expected (sudden, single-month pattern).
+  Most likely drivers -
+  - external demand spike (89% calibrated likelihood): other channels/brands moved similarly in the same month - a category-wide demand shift is a plausible shared driver

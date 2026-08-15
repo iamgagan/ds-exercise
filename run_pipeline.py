@@ -53,10 +53,10 @@ def plot_pr_curve(curve: pd.DataFrame, best_threshold: float, path: Path):
     ax.plot(curve["recall"], curve["precision"], lw=2)
     best_row = curve.iloc[(curve["threshold"] - best_threshold).abs().idxmin()]
     ax.scatter([best_row["recall"]], [best_row["precision"]], color="red", zorder=5,
-               label=f"chosen threshold={best_threshold:.2f}")
+               label=f"deployment threshold={best_threshold:.2f}")
     ax.set_xlabel("recall")
     ax.set_ylabel("precision")
-    ax.set_title("Anomaly detector: precision-recall trade-off")
+    ax.set_title("Anomaly detector: full-panel threshold calibration")
     ax.legend(fontsize=8)
     fig.tight_layout()
     fig.savefig(path, dpi=130)
@@ -68,7 +68,7 @@ def plot_attribution_metrics(metrics: pd.DataFrame, path: Path):
     fig, ax = plt.subplots(figsize=(7, 3.5))
     ax.barh(m["cause"].str.replace("_", " "), m["pr_auc"], color="#3b6fa0")
     ax.axvline(0, color="black", lw=0.5)
-    ax.set_xlabel("PR-AUC (out-of-fold, vs. synthetic ground truth)")
+    ax.set_xlabel("PR-AUC (nested group-held-out, calibrated)")
     ax.set_title("Attribution model: per-cause discrimination")
     fig.tight_layout()
     fig.savefig(path, dpi=130)
@@ -90,10 +90,25 @@ def main():
     print("[2/4] Running anomaly detector...")
     det = detect(panel, labels)
     scored, sel = det["scored"], det["threshold_selection"]
+    detector_cv = det["cv_evaluation"]
     scored.to_csv(OUT / "detector_scored.csv", index=False)
     sel["curve"].to_csv(OUT / "detector_pr_curve.csv", index=False)
-    print(f"    chosen threshold={sel['best_threshold']:.2f}  precision={sel['precision']:.2f}  "
-          f"recall={sel['recall']:.2f}  ({scored['flagged'].sum()} of {len(scored)} months flagged)")
+    cv_table = pd.DataFrame(detector_cv["folds"])
+    for col in ["calibration_brands", "holdout_brands"]:
+        cv_table[col] = cv_table[col].map(lambda values: ";".join(values))
+    overall = pd.DataFrame([dict(
+        fold="overall", calibration_brands="", holdout_brands="all brands (held out once)",
+        calibration_threshold=np.nan, calibration_precision=np.nan, calibration_recall=np.nan,
+        holdout_precision=detector_cv["precision"], holdout_recall=detector_cv["recall"],
+        tp=detector_cv["tp"], fp=detector_cv["fp"], fn=detector_cv["fn"], n_rows=detector_cv["n_rows"],
+    )])
+    pd.concat([cv_table, overall], ignore_index=True).to_csv(
+        OUT / "detector_brand_cv_metrics.csv", index=False
+    )
+    print(f"    deployment threshold={sel['best_threshold']:.2f}  "
+          f"brand-held-out precision={detector_cv['precision']:.2f}  "
+          f"recall={detector_cv['recall']:.2f}  "
+          f"({scored['flagged'].sum()} of {len(scored)} months flagged at deployment threshold)")
     plot_pr_curve(sel["curve"], sel["best_threshold"], PLOTS / "detector_pr_curve.png")
 
     example_pairs = [

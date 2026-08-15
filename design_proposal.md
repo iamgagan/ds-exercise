@@ -34,16 +34,16 @@ small structural model rather than noise with labels bolted on:
 - **Leading indicators** (CTR, CPC, PICR, impression share) track the same quality factor as
   iROAS, not spend/mix - what tells genuine gains apart from budget artifacts.
 - **Six cause types** injected as latent-factor shocks, sudden (1mo) or gradual (3mo ramp), often
-  co-occurring with a Dirichlet-split weight, calibrated to be investigation-worthy but not
-  trivially separable. Injection rates balance *independent events per cause*, not rows - event
-  count is what the evaluation can resolve.
+  co-occurring with a Dirichlet-split weight. External-demand events are sampled once per category
+  and applied to every brand in that category, so the intended "lifted all boats" signature is
+  genuinely cross-brand. Local events remain brand/channel-specific.
 - **Realism knobs:** asymmetric per-brand seasonality, ~2-3% missing periods, one brand launching
   mid-panel (cold-start case), CPC undefined for TV/OOH (bought on reach). Ground truth is stored
   **only** for evaluation, never as a feature.
 
 **Limitations:** one draw from one generative model, encoding our assumptions about response
 curves, seasonality, and confounding. Survivorship bias is the least faithful mechanism (a
-reported-metric multiplier, not true placement dropout). Label density (~19%) is higher than a
+reported-metric multiplier, not true placement dropout). Label density (~22%) is higher than a
 real book of business, to get enough events per cause to evaluate at all.
 
 ## 3. Model design
@@ -54,25 +54,25 @@ fewer than 3 own observations. `sudden_z` (1-month) and `gradual_z` (3-month tra
 only when the months agree in sign - a lightweight CUSUM) run in parallel off the same residual.
 Threshold selection minimizes `FP_count + 5 x FN_count` (raw counts - normalizing by class size
 pushes the optimum to a degenerate corner); 5:1 reflects that a missed spike leaves the manual
-process as the only backstop, while a false positive costs minutes. Current calibration: **precision 0.36 / recall 0.66** - the full curve
-(`output/detector_pr_curve.png`) is the deliverable, not this one point.
+process as the only backstop, while a false positive costs minutes. The deployment threshold is
+**0.50**; evaluation is brand-held-out rather than measured on the calibration rows (Section 5).
 
 The detector is **one-sided** (`direction="up"`). Every cause in the taxonomy raises the headline
 metric, so scoring on `|z|` spent half the review budget on *collapses* no cause could explain,
 and produced incoherent narratives ("spend fell ... consistent with a budget cut" attached to a
-ROAS drop). Gating on signed departure dominates two-sided on both axes: precision 0.36 vs 0.31,
-recall 0.66 vs 0.51. Collapses route to the separate performance-decline review.
+ROAS drop). Collapses route to the separate performance-decline review. Analyst narratives report
+the detector that actually fired: `sudden_z` for sudden alerts and `gradual_z` for gradual alerts.
 
 **Rejected:** rolling mean/std (not robust to the anomaly pulling its own window); per-series STL
 (most series too short - as low as 10 months post-launch); a global IsolationForest (loses channel
 seasonality, nothing an analyst can check against the chart).
 
-**Attribution.** Independent LightGBM binary classifiers, one per cause (not one softmax) -
-causes co-occur, and forcing probabilities to sum to 1 would misrepresent "70% likely this AND
-55% likely that" as "60/40." Models are small and heavily regularized (60 trees, 7 leaves) - with
-7-14 events per cause, anything larger fits noise. **Rejected:** multi-class softmax (contradicts
-"distribution, not a label"); rule-based attribution (brittle, no calibrated confidence); a neural
-multi-label model (unjustifiable at this label volume).
+**Attribution.** Independent LightGBM binary classifiers, one per cause (not one softmax) - causes
+co-occur, so outputs are calibrated marginal likelihoods and deliberately do **not** sum to one.
+Each group-held-out fold owns its median imputer and small regularized model (60 trees, 7 leaves);
+an inner event-grouped loop fits Platt calibration without seeing the evaluated event. The serving
+model averages the calibrated fold ensemble. **Rejected:** normalizing marginals into an
+"explained-signal share" (not probabilistically meaningful); multi-class softmax; a neural model.
 
 ## 4. Feature engineering
 
@@ -98,26 +98,32 @@ the reported numbers and made them deployable.
 
 ## 5. Evaluation
 
-**Attribution, without clean labels in the real world.** Cross-validation is grouped by *event*,
-not by row, using scikit-learn's `StratifiedGroupKFold`. One event spans up to 3 months x several
-channels, so its rows are near-duplicates and row-wise splitting puts the same shock in train and
-test - a leak worth up to 0.47 PR-AUC (external demand: 0.57 row-wise vs 0.10 event-wise). So
-**effective sample size is events, not rows**: 60 rows from 8 events is an 8-sample problem.
+**Detector.** Four-fold brand-grouped evaluation tunes the threshold on six brands and scores it on
+two unseen brands, rotating until every brand is held out once. Aggregated held-out performance is
+**precision 0.46 / recall 0.76**. Only after that estimate is produced is the deployment threshold
+fit on all eight brands; `output/detector_brand_cv_metrics.csv` contains every fold.
+
+**Attribution, without clean labels in the real world.** Nested cross-validation is grouped by
+*event*, not row. One event spans up to 3 months x several channels, so row-wise splitting leaks
+near-duplicates. Median imputation is fitted inside each fold, and calibration uses inner
+group-held-out predictions. **Effective sample size is events, not rows.**
 
 Out-of-fold results (`output/attribution_metrics.csv`); lift is included because PR-AUC is not
 comparable across causes of differing prevalence.
 
 | cause | events | PR-AUC | base | lift |
 |:---|---:|---:|---:|---:|
-| Survivorship bias | 12 | 0.92 | 0.052 | 17.8x |
-| Creative refresh | 13 | 0.59 | 0.050 | 11.8x |
-| Genuine efficiency gain | 14 | 0.63 | 0.076 | 8.3x |
-| External demand spike | 7 | 0.36 | 0.098 | 3.6x |
-| Spend reduction artifact | 12 | 0.30 | 0.103 | 2.9x |
-| **Mix shift artifact** | **8** | **0.10** | **0.111** | **0.89x - at chance** |
+| Survivorship bias | 11 | 0.90 | 0.030 | 29.6x |
+| Spend reduction artifact | 8 | 0.21 | 0.024 | 8.7x |
+| Creative refresh | 21 | 0.65 | 0.079 | 8.2x |
+| Genuine efficiency gain | 15 | 0.58 | 0.084 | 6.9x |
+| Mix shift artifact | 6 | 0.30 | 0.056 | 5.3x |
+| External demand spike | 6 | 0.88 | 0.258 | 3.4x |
 
-Top-1 hit rate is 0.61. Four causes carry strong signal, spend-reduction is modest, and
-**mix-shift sits at chance** - reported, not smoothed over.
+Top-1 hit rate is **0.68**. PR-AUC is reported beside base rate because raw PR-AUC is not comparable
+across causes. Nested Platt scaling improves held-out Brier score for five causes; external demand
+worsens from 0.057 to 0.064 on only six events, a visible calibration-risk warning rather than a
+claim of certainty.
 
 The training population is the serving population - flagged months, with **both** classes
 restricted. That symmetry is load-bearing. An intermediate version restricted only the negatives,
@@ -128,16 +134,15 @@ on it, "below the threshold" *is* "positive". Unflagged-ness alone scored 2.33x 
 headline. When a model runs downstream of a filter, both classes must come from the filtered
 population, and a jump on your weakest class is evidence of a leak before it is evidence of a fix.
 
-`brand_spend_z` / `spend_vs_brand` separate budget *removed* (brand total falls) from
-*reallocated* (flat). Over 5 CV seeds they are worth +0.37 lift on spend-reduction, beyond seed
-noise, and do **not** rescue mix-shift (1.00 -> 0.87) - they earn their place on the cause they
-were designed for, not the one first claimed for them.
+`brand_spend_z` / `spend_vs_brand` separate budget *removed* (brand total falls) from *reallocated*
+(flat). The shared category-demand generator now makes cross-brand coincidence a real signal rather
+than a narrative unsupported by the data-generating process.
 
 The synthetic-label model is only a cold start; the production evaluation loop is
 analyst-agreement rate over time (see *Productionisation*).
 
-Predicted probabilities are mostly low - at precision 0.36 most flagged months have no injected
-cause, and the model correctly stays unsure rather than confabulating.
+Predicted likelihoods are independent, not normalized contributions. Narratives include only
+causes clearing the 25% confidence bar; a weak second-ranked cause is omitted rather than promoted.
 
 ## 6. Causal honesty
 
@@ -147,7 +152,7 @@ even in the synthetic data; the system sees a measured, demand-confounded proxy.
 a differential-diagnosis tool, not a causal-inference engine - "consistent with a creative
 refresh," never "the refresh caused this," a distinction that lives in the narrative templates
 (`src/attribution.py`), not just here. **For a non-technical audience:** every output pairs a
-probability with its evidence - "creative refresh (28% likely): CTR/PICR jumped sharply" - and
+calibrated marginal likelihood with its evidence - "creative refresh (28%): CTR/PICR jumped" - and
 says "flagged, unexplained" when nothing is confident. A real causal claim needs a designed
 experiment (geo holdout, PSA test) or a validated MMM - neither runs here.
 
@@ -155,9 +160,9 @@ experiment (geo holdout, PSA test) or a validated MMM - neither runs here.
 
 **Retraining:** monthly, on a rolling 24-36 month window. **Monitoring:** analyst agreement rate
 on attribution (the real accuracy proxy); feature drift on leading indicators (PSI/KS, monthly);
-alert-volume drift; Brier and lift-over-base per cause, so a cause at chance surfaces instead of
-looking authoritative - this is what keeps mix-shift's 0.89x visible rather than buried in an
-average. **Cold start:** exercised here (one brand launches mid-panel) - new brand-channels borrow
+alert-volume drift; raw-vs-calibrated Brier and lift-over-base per cause, so poor calibration or a
+cause degrading toward chance surfaces instead of looking authoritative. **Cold start:** exercised
+here (one brand launches mid-panel) - new brand-channels borrow
 the peer trend and sigma until a 3-month own-history floor. Next step, not built: cluster brands
 into spend/mix archetypes so new brands borrow from the nearest archetype, not the full pool.
 **Human-in-the-loop:** every analyst confirm/correct/reject is logged and feeds the next retrain -
@@ -166,9 +171,8 @@ how the synthetic-label cold start gets replaced by real signal.
 ## 8. Limits - where this breaks
 
 The simulator's assumptions are the ceiling: if real response curves, seasonality, or confounding
-differ materially, both models need re-validation first. **Mix-shift attribution does not work**
-(0.89x lift, at chance, on 8 events) and spend-reduction is modest at 2.9x - the system separates
-budget mechanics from genuine gains but cannot identify reallocation. Short-history brands
+differ materially, both models need re-validation first. Event counts remain tiny (6-21 per cause),
+and external-demand calibration is unstable despite good discrimination. Short-history brands
 underperform on peer priors; the causal seasonal index is blind for a panel's first 12 months.
 Attribution has no "none of the above" - a driver outside the taxonomy (competitor stockout,
 macro shock) yields uniformly low probabilities, surfaced as "flagged, unexplained." Forecasting

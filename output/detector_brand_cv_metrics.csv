@@ -1,0 +1,6 @@
+fold,calibration_brands,holdout_brands,calibration_threshold,calibration_precision,calibration_recall,holdout_precision,holdout_recall,tp,fp,fn,n_rows
+1,Crestline Beverages;Nimbus Home;Pinebrook Pet Co.;Ridgeway Grocery;Solstice Foods;Verdant Snacks,Aster Wellness;Halcyon Personal Care,0.6499999999999999,0.5,0.7311827956989247,0.5772357723577236,0.7553191489361702,71,52,23,404
+2,Aster Wellness;Halcyon Personal Care;Nimbus Home;Pinebrook Pet Co.;Solstice Foods;Verdant Snacks,Crestline Beverages;Ridgeway Grocery,0.5,0.4796380090497738,0.7737226277372263,0.43315508021390375,0.8181818181818182,81,106,18,511
+3,Aster Wellness;Crestline Beverages;Halcyon Personal Care;Nimbus Home;Ridgeway Grocery;Solstice Foods,Pinebrook Pet Co.;Verdant Snacks,0.5,0.46771037181996084,0.8074324324324325,0.4576271186440678,0.7012987012987013,54,64,23,298
+4,Aster Wellness;Crestline Beverages;Halcyon Personal Care;Pinebrook Pet Co.;Ridgeway Grocery;Verdant Snacks,Nimbus Home;Solstice Foods,0.44999999999999996,0.453416149068323,0.8111111111111111,0.41798941798941797,0.7669902912621359,79,110,24,439
+overall,,all brands (held out once),,,,0.4619124797406807,0.7640750670241286,285,332,88,1652

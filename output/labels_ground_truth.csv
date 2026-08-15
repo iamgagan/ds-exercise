@@ -1,313 +1,384 @@
-brand,channel,month,genuine_efficiency_gain,spend_reduction_artifact,mix_shift_artifact,survivorship_bias,external_demand_spike,creative_refresh,group_id
-Aster Wellness,audio,2023-02,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,audio,2023-03,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,audio,2023-04,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,audio,2024-04,0.0,0.0,0.0,0.0,1.0,0.0,Aster Wellness#4
-Aster Wellness,audio,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,Aster Wellness#2
-Aster Wellness,digital_video,2023-02,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,digital_video,2023-03,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,digital_video,2023-04,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,digital_video,2024-04,0.0,0.0,0.0,0.0,1.0,0.0,Aster Wellness#4
-Aster Wellness,digital_video,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,Aster Wellness#5
-Aster Wellness,display,2023-02,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,display,2023-03,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,display,2023-04,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,display,2024-04,0.0,0.0,0.0,0.0,1.0,0.0,Aster Wellness#4
-Aster Wellness,display,2024-11,1.0,0.0,0.0,0.0,0.0,0.0,Aster Wellness#3
-Aster Wellness,display,2024-12,1.0,0.0,0.0,0.0,0.0,0.0,Aster Wellness#3
-Aster Wellness,display,2025-01,1.0,0.0,0.0,0.0,0.0,0.0,Aster Wellness#3
-Aster Wellness,paid_search,2023-02,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,paid_search,2023-03,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,paid_search,2023-04,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,paid_search,2024-04,0.0,0.0,0.0,0.0,1.0,0.0,Aster Wellness#4
-Aster Wellness,retail_media,2023-02,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,retail_media,2023-03,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,retail_media,2023-04,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,retail_media,2024-04,0.0,0.0,0.0,0.0,1.0,0.0,Aster Wellness#4
-Aster Wellness,social,2023-02,0.0,0.2310636099617115,0.2689363900382885,0.0,0.0,0.5,Aster Wellness#1
-Aster Wellness,social,2023-03,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,social,2023-04,0.0,0.462127219923423,0.537872780076577,0.0,0.0,0.0,Aster Wellness#1
-Aster Wellness,social,2024-04,0.0,0.0,0.0,0.0,1.0,0.0,Aster Wellness#4
-Aster Wellness,social,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,Aster Wellness#2
-Crestline Beverages,affiliate,2023-05,0.0,1.0,0.0,0.0,0.0,0.0,Crestline Beverages#2
-Crestline Beverages,affiliate,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,affiliate,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,affiliate,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,affiliate,2024-11,0.6691077980852396,0.0,0.0,0.0,0.0,0.33089220191476043,Crestline Beverages#5
-Crestline Beverages,affiliate,2024-12,0.6691077980852396,0.0,0.0,0.0,0.0,0.33089220191476043,Crestline Beverages#5
-Crestline Beverages,affiliate,2025-01,0.6691077980852396,0.0,0.0,0.0,0.0,0.33089220191476043,Crestline Beverages#5
-Crestline Beverages,audio,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,audio,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,audio,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,audio,2023-12,0.0,1.0,0.0,0.0,0.0,0.0,Crestline Beverages#0
-Crestline Beverages,audio,2025-04,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#3
-Crestline Beverages,audio,2025-05,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#3
-Crestline Beverages,audio,2025-06,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#3
-Crestline Beverages,digital_video,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,digital_video,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,digital_video,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,ooh,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,ooh,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,ooh,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,ooh,2024-08,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#6
-Crestline Beverages,ooh,2024-09,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#6
-Crestline Beverages,ooh,2024-10,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#6
-Crestline Beverages,paid_search,2023-05,0.0,1.0,0.0,0.0,0.0,0.0,Crestline Beverages#2
-Crestline Beverages,paid_search,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,paid_search,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,paid_search,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,retail_media,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,retail_media,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,retail_media,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,social,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,social,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,social,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,social,2024-03,0.0,0.0,0.0,1.0,0.0,0.0,Crestline Beverages#7
-Crestline Beverages,tv,2023-07,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,tv,2023-08,0.0,0.5273076775479905,0.4726923224520095,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,tv,2023-09,0.0,0.5891511443128811,0.410848855687119,0.0,0.0,0.0,Crestline Beverages#4
-Crestline Beverages,tv,2024-08,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#6
-Crestline Beverages,tv,2024-09,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#6
-Crestline Beverages,tv,2024-10,1.0,0.0,0.0,0.0,0.0,0.0,Crestline Beverages#6
-Halcyon Personal Care,affiliate,2024-03,0.0,0.0,0.0,0.0,0.0,1.0,Halcyon Personal Care#2
-Halcyon Personal Care,affiliate,2024-05,0.0,1.0,0.0,0.0,0.0,0.0,Halcyon Personal Care#1
-Halcyon Personal Care,affiliate,2024-10,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#4
-Halcyon Personal Care,affiliate,2024-11,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#4
-Halcyon Personal Care,affiliate,2024-12,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#4
-Halcyon Personal Care,digital_video,2025-03,0.0,1.0,0.0,0.0,0.0,0.0,Halcyon Personal Care#0
-Halcyon Personal Care,display,2025-09,1.0,0.0,0.0,0.0,0.0,0.0,Halcyon Personal Care#5
-Halcyon Personal Care,paid_search,2025-11,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#3
-Halcyon Personal Care,retail_media,2024-10,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#4
-Halcyon Personal Care,retail_media,2024-11,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#4
-Halcyon Personal Care,retail_media,2024-12,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#4
-Halcyon Personal Care,retail_media,2025-03,0.0,1.0,0.0,0.0,0.0,0.0,Halcyon Personal Care#0
-Halcyon Personal Care,retail_media,2025-09,1.0,0.0,0.0,0.0,0.0,0.0,Halcyon Personal Care#5
-Halcyon Personal Care,social,2024-03,0.0,0.0,0.0,0.0,0.0,1.0,Halcyon Personal Care#2
-Halcyon Personal Care,social,2025-11,0.0,0.0,0.0,1.0,0.0,0.0,Halcyon Personal Care#3
-Nimbus Home,audio,2024-03,0.0,0.0,0.0,0.0,1.0,0.0,Nimbus Home#5
-Nimbus Home,digital_video,2024-01,0.0,0.0,0.0,1.0,0.0,0.0,Nimbus Home#1
-Nimbus Home,digital_video,2024-03,0.0,0.0,0.0,0.0,1.0,0.0,Nimbus Home#5
-Nimbus Home,digital_video,2025-01,1.0,0.0,0.0,0.0,0.0,0.0,Nimbus Home#3
-Nimbus Home,digital_video,2025-02,1.0,0.0,0.0,0.0,0.0,0.0,Nimbus Home#3
-Nimbus Home,digital_video,2025-03,1.0,0.0,0.0,0.0,0.0,0.0,Nimbus Home#3
-Nimbus Home,digital_video,2025-06,0.0,0.0,0.0,0.0,0.0,1.0,Nimbus Home#4
-Nimbus Home,display,2024-03,0.0,0.0,0.0,0.0,1.0,0.0,Nimbus Home#5
-Nimbus Home,display,2025-06,1.0,0.0,0.0,0.0,0.0,0.0,Nimbus Home#2
-Nimbus Home,display,2025-07,1.0,0.0,0.0,0.0,0.0,0.0,Nimbus Home#2
-Nimbus Home,display,2025-08,1.0,0.0,0.0,0.0,0.0,0.0,Nimbus Home#2
-Nimbus Home,paid_search,2024-01,0.0,0.0,0.0,1.0,0.0,0.0,Nimbus Home#1
-Nimbus Home,paid_search,2024-03,0.0,0.0,0.0,0.0,1.0,0.0,Nimbus Home#5
-Nimbus Home,retail_media,2024-03,0.0,0.0,0.0,0.0,1.0,0.0,Nimbus Home#5
-Nimbus Home,retail_media,2024-12,0.0,0.0,0.0,1.0,0.0,0.0,Nimbus Home#0
-Nimbus Home,retail_media,2025-06,0.0,0.0,0.0,0.0,0.0,1.0,Nimbus Home#4
-Nimbus Home,social,2024-03,0.0,0.0,0.0,0.0,1.0,0.0,Nimbus Home#5
-Nimbus Home,social,2024-12,0.0,0.0,0.0,1.0,0.0,0.0,Nimbus Home#0
-Pinebrook Pet Co.,affiliate,2025-01,0.0,0.0,0.0,0.0,0.0,1.0,Pinebrook Pet Co.#1
-Pinebrook Pet Co.,affiliate,2025-03,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,affiliate,2025-04,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,affiliate,2025-05,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,affiliate,2025-08,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,affiliate,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,affiliate,2025-10,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,digital_video,2025-03,0.0,0.2565370337590729,0.4101296329075938,0.3333333333333333,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,digital_video,2025-04,0.0,0.2565370337590729,0.4101296329075938,0.3333333333333333,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,digital_video,2025-05,0.0,0.2565370337590729,0.4101296329075938,0.3333333333333333,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,digital_video,2025-08,0.0,0.5,0.0,0.0,0.5,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,digital_video,2025-09,0.0,0.5,0.0,0.0,0.5,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,digital_video,2025-10,0.0,0.5,0.0,0.0,0.5,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,digital_video,2025-11,1.0,0.0,0.0,0.0,0.0,0.0,Pinebrook Pet Co.#7
-Pinebrook Pet Co.,display,2025-01,0.0,0.0,0.0,0.0,0.0,1.0,Pinebrook Pet Co.#1
-Pinebrook Pet Co.,display,2025-03,0.0,0.5898703670924063,0.4101296329075938,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,display,2025-04,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,display,2025-05,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,display,2025-08,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,display,2025-10,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,paid_search,2025-03,0.0,0.2565370337590729,0.4101296329075938,0.3333333333333333,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,paid_search,2025-04,0.0,0.2565370337590729,0.4101296329075938,0.3333333333333333,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,paid_search,2025-05,0.0,0.2565370337590729,0.4101296329075938,0.3333333333333333,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,paid_search,2025-08,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,paid_search,2025-10,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,retail_media,2024-12,1.0,0.0,0.0,0.0,0.0,0.0,Pinebrook Pet Co.#4
-Pinebrook Pet Co.,retail_media,2025-01,1.0,0.0,0.0,0.0,0.0,0.0,Pinebrook Pet Co.#4
-Pinebrook Pet Co.,retail_media,2025-02,1.0,0.0,0.0,0.0,0.0,0.0,Pinebrook Pet Co.#4
-Pinebrook Pet Co.,retail_media,2025-03,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,retail_media,2025-04,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,retail_media,2025-05,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,retail_media,2025-08,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,retail_media,2025-10,0.0,0.0,0.0,0.0,1.0,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,social,2025-03,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,social,2025-04,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,social,2025-05,0.0,0.38480555063860933,0.6151944493613907,0.0,0.0,0.0,Pinebrook Pet Co.#2
-Pinebrook Pet Co.,social,2025-08,0.0,0.5,0.0,0.0,0.5,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,social,2025-09,0.0,0.5,0.0,0.0,0.5,0.0,Pinebrook Pet Co.#6
-Pinebrook Pet Co.,social,2025-10,0.0,0.5,0.0,0.0,0.5,0.0,Pinebrook Pet Co.#6
-Ridgeway Grocery,affiliate,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,affiliate,2024-01,0.4039115324918129,0.0,0.0,0.0,0.0,0.5960884675081871,Ridgeway Grocery#7
-Ridgeway Grocery,affiliate,2024-08,1.0,0.0,0.0,0.0,0.0,0.0,Ridgeway Grocery#0
-Ridgeway Grocery,affiliate,2024-09,1.0,0.0,0.0,0.0,0.0,0.0,Ridgeway Grocery#0
-Ridgeway Grocery,affiliate,2024-10,1.0,0.0,0.0,0.0,0.0,0.0,Ridgeway Grocery#0
-Ridgeway Grocery,audio,2023-05,0.0,0.0,0.0,0.0,0.0,1.0,Ridgeway Grocery#4
-Ridgeway Grocery,audio,2023-06,0.0,0.0,0.0,0.0,0.0,1.0,Ridgeway Grocery#4
-Ridgeway Grocery,audio,2023-07,0.0,0.0,0.0,0.0,0.0,1.0,Ridgeway Grocery#4
-Ridgeway Grocery,audio,2023-11,0.0,0.0,0.0,0.5,0.5,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,display,2023-05,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#1
-Ridgeway Grocery,display,2023-06,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#1
-Ridgeway Grocery,display,2023-07,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#1
-Ridgeway Grocery,display,2023-11,0.0,0.0,0.0,0.5,0.5,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,paid_search,2023-05,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#1
-Ridgeway Grocery,paid_search,2023-06,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#1
-Ridgeway Grocery,paid_search,2023-07,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#1
-Ridgeway Grocery,paid_search,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,retail_media,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,retail_media,2024-01,0.4039115324918129,0.0,0.0,0.0,0.0,0.5960884675081871,Ridgeway Grocery#7
-Ridgeway Grocery,retail_media,2025-04,0.0,1.0,0.0,0.0,0.0,0.0,Ridgeway Grocery#8
-Ridgeway Grocery,social,2023-04,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#2
-Ridgeway Grocery,social,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,tv,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,Ridgeway Grocery#6
-Ridgeway Grocery,tv,2025-02,0.0,0.0,0.0,1.0,0.0,0.0,Ridgeway Grocery#3
-Solstice Foods,affiliate,2023-05,0.0,0.0,0.0,1.0,0.0,0.0,Solstice Foods#5
-Solstice Foods,affiliate,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,affiliate,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,affiliate,2023-09,0.0,0.0,0.5,0.0,0.49999999999999994,0.0,Solstice Foods#7
-Solstice Foods,affiliate,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,affiliate,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,affiliate,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,affiliate,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,affiliate,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,affiliate,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,affiliate,2025-03,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#8
-Solstice Foods,affiliate,2025-04,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#8
-Solstice Foods,affiliate,2025-05,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#8
-Solstice Foods,affiliate,2025-07,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#4
-Solstice Foods,affiliate,2025-08,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#4
-Solstice Foods,affiliate,2025-09,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#4
-Solstice Foods,digital_video,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,digital_video,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,digital_video,2023-09,0.0,0.0,0.3333333333333333,0.0,0.3333333333333333,0.3333333333333333,Solstice Foods#7
-Solstice Foods,digital_video,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,digital_video,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,digital_video,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,digital_video,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,digital_video,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,digital_video,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,display,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,display,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,display,2023-09,0.0,0.0,0.5,0.0,0.49999999999999994,0.0,Solstice Foods#7
-Solstice Foods,display,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,display,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,display,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,display,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,display,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,display,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,display,2025-01,0.0,0.0,0.0,0.0,0.0,1.0,Solstice Foods#3
-Solstice Foods,display,2025-02,0.0,0.0,0.0,0.0,0.0,1.0,Solstice Foods#3
-Solstice Foods,display,2025-03,0.0,0.0,0.0,0.0,0.0,1.0,Solstice Foods#3
-Solstice Foods,paid_search,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,paid_search,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,paid_search,2023-09,0.0,0.0,0.5,0.0,0.49999999999999994,0.0,Solstice Foods#7
-Solstice Foods,paid_search,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,paid_search,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,paid_search,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,paid_search,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,paid_search,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,paid_search,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,paid_search,2025-03,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#8
-Solstice Foods,paid_search,2025-04,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#8
-Solstice Foods,paid_search,2025-05,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#8
-Solstice Foods,paid_search,2025-07,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#4
-Solstice Foods,paid_search,2025-08,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#4
-Solstice Foods,paid_search,2025-09,1.0,0.0,0.0,0.0,0.0,0.0,Solstice Foods#4
-Solstice Foods,retail_media,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,retail_media,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,retail_media,2023-09,0.0,0.0,0.5,0.0,0.49999999999999994,0.0,Solstice Foods#7
-Solstice Foods,retail_media,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,retail_media,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,retail_media,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,retail_media,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,retail_media,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,retail_media,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,retail_media,2025-01,0.0,0.0,0.0,0.0,0.0,1.0,Solstice Foods#3
-Solstice Foods,retail_media,2025-02,0.0,0.0,0.0,0.0,0.0,1.0,Solstice Foods#3
-Solstice Foods,retail_media,2025-03,0.0,0.0,0.0,0.0,0.0,1.0,Solstice Foods#3
-Solstice Foods,social,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,social,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,social,2023-09,0.0,0.0,0.3333333333333333,0.0,0.3333333333333333,0.3333333333333333,Solstice Foods#7
-Solstice Foods,social,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,social,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,social,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,social,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,social,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,social,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,tv,2023-05,0.0,0.0,0.0,1.0,0.0,0.0,Solstice Foods#5
-Solstice Foods,tv,2023-07,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,tv,2023-08,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#7
-Solstice Foods,tv,2023-09,0.0,0.0,0.5,0.0,0.49999999999999994,0.0,Solstice Foods#7
-Solstice Foods,tv,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,tv,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#7
-Solstice Foods,tv,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,Solstice Foods#6
-Solstice Foods,tv,2024-09,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,tv,2024-10,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Solstice Foods,tv,2024-11,0.0,0.0,1.0,0.0,0.0,0.0,Solstice Foods#0
-Verdant Snacks,affiliate,2023-03,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,affiliate,2023-04,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,affiliate,2023-05,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,affiliate,2023-12,0.0,0.0,0.0,0.0,0.0,1.0,Verdant Snacks#3
-Verdant Snacks,affiliate,2024-01,0.0,0.0,1.0,0.0,0.0,0.0,Verdant Snacks#4
-Verdant Snacks,affiliate,2024-05,0.0,0.0,0.0,0.0,1.0,0.0,Verdant Snacks#5
-Verdant Snacks,affiliate,2024-08,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,affiliate,2024-09,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,affiliate,2024-10,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,digital_video,2023-03,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,digital_video,2023-04,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,digital_video,2023-05,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,digital_video,2024-01,0.0,0.0,1.0,0.0,0.0,0.0,Verdant Snacks#4
-Verdant Snacks,digital_video,2024-03,0.5,0.0,0.0,0.5,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,digital_video,2024-04,1.0,0.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,digital_video,2024-05,0.5,0.0,0.0,0.0,0.5,0.0,Verdant Snacks#5
-Verdant Snacks,digital_video,2024-08,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,digital_video,2024-09,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,digital_video,2024-10,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,display,2023-03,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,display,2023-04,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,display,2023-05,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,display,2023-10,0.0,0.0,0.0,0.0,0.0,1.0,Verdant Snacks#1
-Verdant Snacks,display,2023-12,0.0,0.0,0.0,0.0,0.0,1.0,Verdant Snacks#3
-Verdant Snacks,display,2024-01,0.0,0.0,1.0,0.0,0.0,0.0,Verdant Snacks#4
-Verdant Snacks,display,2024-04,0.0,1.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,display,2024-05,0.0,0.5,0.0,0.0,0.5,0.0,Verdant Snacks#5
-Verdant Snacks,display,2024-06,0.0,1.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,display,2024-08,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,display,2024-09,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,display,2024-10,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,paid_search,2023-03,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,paid_search,2023-04,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,paid_search,2023-05,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,paid_search,2024-01,0.0,0.0,1.0,0.0,0.0,0.0,Verdant Snacks#4
-Verdant Snacks,paid_search,2024-04,0.0,1.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,paid_search,2024-05,0.0,0.5,0.0,0.0,0.5,0.0,Verdant Snacks#5
-Verdant Snacks,paid_search,2024-06,0.0,1.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,paid_search,2024-08,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,paid_search,2024-09,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,paid_search,2024-10,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,retail_media,2023-03,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,retail_media,2023-04,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,retail_media,2023-05,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,retail_media,2024-01,0.0,0.0,1.0,0.0,0.0,0.0,Verdant Snacks#4
-Verdant Snacks,retail_media,2024-05,0.0,0.0,0.0,0.0,1.0,0.0,Verdant Snacks#5
-Verdant Snacks,retail_media,2024-08,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,retail_media,2024-09,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,retail_media,2024-10,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,social,2023-03,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,social,2023-04,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,social,2023-05,0.0,0.45562405091332114,0.5443759490866789,0.0,0.0,0.0,Verdant Snacks#2
-Verdant Snacks,social,2023-10,0.0,0.0,0.0,0.0,0.0,1.0,Verdant Snacks#1
-Verdant Snacks,social,2024-01,0.0,0.0,1.0,0.0,0.0,0.0,Verdant Snacks#4
-Verdant Snacks,social,2024-03,1.0,0.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,social,2024-04,1.0,0.0,0.0,0.0,0.0,0.0,Verdant Snacks#5
-Verdant Snacks,social,2024-05,0.5,0.0,0.0,0.0,0.5,0.0,Verdant Snacks#5
-Verdant Snacks,social,2024-08,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,social,2024-09,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
-Verdant Snacks,social,2024-10,0.0,0.5782828896393317,0.42171711036066833,0.0,0.0,0.0,Verdant Snacks#7
+brand,channel,month,genuine_efficiency_gain,spend_reduction_artifact,mix_shift_artifact,survivorship_bias,external_demand_spike,creative_refresh,group_id,event_keys
+Aster Wellness,audio,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,audio,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,audio,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,audio,2024-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#7,brand:Aster Wellness#0
+Aster Wellness,audio,2024-06,0.0,0.0,0.5,0.0,0.0,0.5,brand:Aster Wellness#7,brand:Aster Wellness#0;brand:Aster Wellness#7
+Aster Wellness,audio,2024-07,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#7,brand:Aster Wellness#0
+Aster Wellness,audio,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Aster Wellness,audio,2025-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#6
+Aster Wellness,audio,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Aster Wellness,digital_video,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,digital_video,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,digital_video,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,digital_video,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Aster Wellness#7,brand:Aster Wellness#7
+Aster Wellness,digital_video,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Aster Wellness,digital_video,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Aster Wellness,display,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,display,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,display,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,display,2024-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#7,brand:Aster Wellness#0
+Aster Wellness,display,2024-06,0.0,0.0,0.5,0.0,0.0,0.5,brand:Aster Wellness#7,brand:Aster Wellness#0;brand:Aster Wellness#7
+Aster Wellness,display,2024-07,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#7,brand:Aster Wellness#0
+Aster Wellness,display,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Aster Wellness,display,2025-04,0.0,1.0,0.0,0.0,0.0,0.0,brand:Aster Wellness#3,brand:Aster Wellness#3
+Aster Wellness,display,2025-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#2;brand:Aster Wellness#6
+Aster Wellness,display,2025-06,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#2
+Aster Wellness,display,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#2
+Aster Wellness,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Aster Wellness,paid_search,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,paid_search,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,paid_search,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,paid_search,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Aster Wellness#7,brand:Aster Wellness#7
+Aster Wellness,paid_search,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Aster Wellness,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Aster Wellness,retail_media,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,retail_media,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,retail_media,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,retail_media,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Aster Wellness#7,brand:Aster Wellness#7
+Aster Wellness,retail_media,2025-02,0.0,0.0,0.0,0.0,0.0,1.0,category:home_personal_wellness#1,brand:Aster Wellness#5
+Aster Wellness,retail_media,2025-03,0.0,0.0,0.0,0.0,0.474551173729889,0.5254488262701111,category:home_personal_wellness#1,brand:Aster Wellness#5;category:home_personal_wellness#1
+Aster Wellness,retail_media,2025-04,0.0,0.0,0.0,0.0,0.0,1.0,category:home_personal_wellness#1,brand:Aster Wellness#5
+Aster Wellness,retail_media,2025-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#2
+Aster Wellness,retail_media,2025-06,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#2
+Aster Wellness,retail_media,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,brand:Aster Wellness#6,brand:Aster Wellness#2
+Aster Wellness,retail_media,2025-09,0.5685306667598102,0.0,0.0,0.0,0.4314693332401898,0.0,category:home_personal_wellness#2,brand:Aster Wellness#4;category:home_personal_wellness#2
+Aster Wellness,retail_media,2025-10,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#2,brand:Aster Wellness#4
+Aster Wellness,retail_media,2025-11,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#2,brand:Aster Wellness#4
+Aster Wellness,social,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,social,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,social,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Aster Wellness,social,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Aster Wellness#7,brand:Aster Wellness#7
+Aster Wellness,social,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Aster Wellness,social,2025-06,1.0,0.0,0.0,0.0,0.0,0.0,brand:Aster Wellness#1,brand:Aster Wellness#1
+Aster Wellness,social,2025-07,1.0,0.0,0.0,0.0,0.0,0.0,brand:Aster Wellness#1,brand:Aster Wellness#1
+Aster Wellness,social,2025-08,1.0,0.0,0.0,0.0,0.0,0.0,brand:Aster Wellness#1,brand:Aster Wellness#1
+Aster Wellness,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Crestline Beverages,affiliate,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,affiliate,2024-05,0.0,0.0,0.0,1.0,0.0,0.0,brand:Crestline Beverages#3,brand:Crestline Beverages#3
+Crestline Beverages,affiliate,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,affiliate,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,brand:Crestline Beverages#5,brand:Crestline Beverages#5
+Crestline Beverages,affiliate,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,audio,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,audio,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,audio,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,digital_video,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,digital_video,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,digital_video,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,ooh,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,ooh,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,ooh,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,paid_search,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,paid_search,2024-01,0.34722656636703825,0.0,0.0,0.0,0.0,0.6527734336329618,brand:Crestline Beverages#1,brand:Crestline Beverages#1
+Crestline Beverages,paid_search,2024-02,0.34722656636703825,0.0,0.0,0.0,0.0,0.6527734336329618,brand:Crestline Beverages#1,brand:Crestline Beverages#1
+Crestline Beverages,paid_search,2024-03,0.34722656636703825,0.0,0.0,0.0,0.0,0.6527734336329618,brand:Crestline Beverages#1,brand:Crestline Beverages#1
+Crestline Beverages,paid_search,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,paid_search,2025-05,0.5811314742093744,0.0,0.0,0.0,0.0,0.41886852579062556,brand:Crestline Beverages#7,brand:Crestline Beverages#7
+Crestline Beverages,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,retail_media,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,retail_media,2023-08,0.0,0.0,0.0,1.0,0.0,0.0,brand:Crestline Beverages#0,brand:Crestline Beverages#0
+Crestline Beverages,retail_media,2024-05,0.7953127384527,0.0,0.0,0.0,0.0,0.2046872615473,brand:Crestline Beverages#6,brand:Crestline Beverages#6
+Crestline Beverages,retail_media,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,social,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,social,2024-09,0.0,0.0,0.0,1.0,0.0,0.0,brand:Crestline Beverages#2,brand:Crestline Beverages#2
+Crestline Beverages,social,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Crestline Beverages,tv,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Crestline Beverages,tv,2024-01,0.34722656636703825,0.0,0.0,0.0,0.0,0.6527734336329618,brand:Crestline Beverages#1,brand:Crestline Beverages#1
+Crestline Beverages,tv,2024-02,0.34722656636703825,0.0,0.0,0.0,0.0,0.6527734336329618,brand:Crestline Beverages#1,brand:Crestline Beverages#1
+Crestline Beverages,tv,2024-03,0.34722656636703825,0.0,0.0,0.0,0.0,0.6527734336329618,brand:Crestline Beverages#1,brand:Crestline Beverages#1
+Crestline Beverages,tv,2024-06,0.0,0.0,0.0,1.0,0.0,0.0,brand:Crestline Beverages#4,brand:Crestline Beverages#4
+Crestline Beverages,tv,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Crestline Beverages,tv,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Halcyon Personal Care,affiliate,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,affiliate,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,affiliate,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,affiliate,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Halcyon Personal Care,affiliate,2025-08,0.0,0.0,0.0,0.0,0.0,1.0,brand:Halcyon Personal Care#0,brand:Halcyon Personal Care#0
+Halcyon Personal Care,affiliate,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Halcyon Personal Care,digital_video,2023-04,0.0,0.0,0.0,0.0,0.0,1.0,brand:Halcyon Personal Care#5,brand:Halcyon Personal Care#5
+Halcyon Personal Care,digital_video,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,digital_video,2023-12,0.0,0.0,0.0,0.5543768350449292,0.4456231649550707,0.0,category:home_personal_wellness#0,brand:Halcyon Personal Care#6;category:home_personal_wellness#0
+Halcyon Personal Care,digital_video,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,digital_video,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Halcyon Personal Care,digital_video,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Halcyon Personal Care,display,2023-02,0.0,0.0,0.0,0.0,0.0,1.0,brand:Halcyon Personal Care#2,brand:Halcyon Personal Care#2
+Halcyon Personal Care,display,2023-04,1.0,0.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#4,brand:Halcyon Personal Care#4
+Halcyon Personal Care,display,2023-05,1.0,0.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#4,brand:Halcyon Personal Care#4
+Halcyon Personal Care,display,2023-06,1.0,0.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#4,brand:Halcyon Personal Care#4
+Halcyon Personal Care,display,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,display,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,display,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,display,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Halcyon Personal Care,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Halcyon Personal Care,paid_search,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,paid_search,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,paid_search,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,paid_search,2024-02,0.0,1.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#3,brand:Halcyon Personal Care#3
+Halcyon Personal Care,paid_search,2024-03,0.0,1.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#3,brand:Halcyon Personal Care#3
+Halcyon Personal Care,paid_search,2024-04,0.0,1.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#3,brand:Halcyon Personal Care#3
+Halcyon Personal Care,paid_search,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Halcyon Personal Care,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Halcyon Personal Care,retail_media,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,retail_media,2023-12,0.0,0.0,0.0,0.5543768350449292,0.4456231649550707,0.0,category:home_personal_wellness#0,brand:Halcyon Personal Care#6;category:home_personal_wellness#0
+Halcyon Personal Care,retail_media,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,retail_media,2025-03,0.0,0.0,0.0,0.5254488262701111,0.4745511737298889,0.0,category:home_personal_wellness#1,brand:Halcyon Personal Care#1;category:home_personal_wellness#1
+Halcyon Personal Care,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Halcyon Personal Care,social,2023-02,0.0,0.0,0.0,0.0,0.0,1.0,brand:Halcyon Personal Care#2,brand:Halcyon Personal Care#2
+Halcyon Personal Care,social,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,social,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,social,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Halcyon Personal Care,social,2024-02,0.0,1.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#3,brand:Halcyon Personal Care#3
+Halcyon Personal Care,social,2024-03,0.0,1.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#3,brand:Halcyon Personal Care#3
+Halcyon Personal Care,social,2024-04,0.0,1.0,0.0,0.0,0.0,0.0,brand:Halcyon Personal Care#3,brand:Halcyon Personal Care#3
+Halcyon Personal Care,social,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Halcyon Personal Care,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Nimbus Home,audio,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,audio,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,audio,2024-01,0.5543768350449292,0.0,0.0,0.0,0.4456231649550707,0.0,category:home_personal_wellness#0,brand:Nimbus Home#1;category:home_personal_wellness#0
+Nimbus Home,audio,2024-02,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#0,brand:Nimbus Home#1
+Nimbus Home,audio,2024-03,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#0,brand:Nimbus Home#1
+Nimbus Home,audio,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,audio,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,audio,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,audio,2024-11,0.0,0.0,0.0,0.0,0.0,1.0,brand:Nimbus Home#3,brand:Nimbus Home#3
+Nimbus Home,audio,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Nimbus Home,audio,2025-05,1.0,0.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#0,brand:Nimbus Home#0
+Nimbus Home,audio,2025-06,1.0,0.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#0,brand:Nimbus Home#0
+Nimbus Home,audio,2025-07,1.0,0.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#0,brand:Nimbus Home#0
+Nimbus Home,audio,2025-08,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#2,brand:Nimbus Home#7
+Nimbus Home,audio,2025-09,0.5685306667598102,0.0,0.0,0.0,0.4314693332401898,0.0,category:home_personal_wellness#2,brand:Nimbus Home#7;category:home_personal_wellness#2
+Nimbus Home,audio,2025-10,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#2,brand:Nimbus Home#7
+Nimbus Home,digital_video,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,digital_video,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,digital_video,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,digital_video,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,digital_video,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,digital_video,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,digital_video,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Nimbus Home,digital_video,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Nimbus Home,display,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,display,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,display,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,display,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,display,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,display,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,display,2024-11,0.0,0.0,0.0,0.0,0.0,1.0,brand:Nimbus Home#3,brand:Nimbus Home#3
+Nimbus Home,display,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Nimbus Home,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Nimbus Home,paid_search,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,paid_search,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,paid_search,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,paid_search,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,paid_search,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,paid_search,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,paid_search,2025-02,0.0,0.0,0.0,0.0,0.0,1.0,brand:Nimbus Home#2,brand:Nimbus Home#2
+Nimbus Home,paid_search,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Nimbus Home,paid_search,2025-08,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#2,brand:Nimbus Home#6
+Nimbus Home,paid_search,2025-09,0.5685306667598102,0.0,0.0,0.0,0.4314693332401898,0.0,category:home_personal_wellness#2,brand:Nimbus Home#6;category:home_personal_wellness#2
+Nimbus Home,paid_search,2025-10,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#2,brand:Nimbus Home#6
+Nimbus Home,retail_media,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,retail_media,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,retail_media,2024-01,0.5543768350449292,0.0,0.0,0.0,0.4456231649550707,0.0,category:home_personal_wellness#0,brand:Nimbus Home#1;category:home_personal_wellness#0
+Nimbus Home,retail_media,2024-02,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#0,brand:Nimbus Home#1
+Nimbus Home,retail_media,2024-03,1.0,0.0,0.0,0.0,0.0,0.0,category:home_personal_wellness#0,brand:Nimbus Home#1
+Nimbus Home,retail_media,2024-04,0.0,1.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#5
+Nimbus Home,retail_media,2024-05,0.0,0.5,0.5,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4;brand:Nimbus Home#5
+Nimbus Home,retail_media,2024-06,0.0,0.5,0.5,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4;brand:Nimbus Home#5
+Nimbus Home,retail_media,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,retail_media,2025-02,0.0,0.0,0.0,0.0,0.0,1.0,brand:Nimbus Home#2,brand:Nimbus Home#2
+Nimbus Home,retail_media,2025-03,0.0,0.5254488262701111,0.0,0.0,0.4745511737298889,0.0,category:home_personal_wellness#1,brand:Nimbus Home#8;category:home_personal_wellness#1
+Nimbus Home,retail_media,2025-05,1.0,0.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#0,brand:Nimbus Home#0
+Nimbus Home,retail_media,2025-06,1.0,0.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#0,brand:Nimbus Home#0
+Nimbus Home,retail_media,2025-07,1.0,0.0,0.0,0.0,0.0,0.0,brand:Nimbus Home#0,brand:Nimbus Home#0
+Nimbus Home,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Nimbus Home,social,2023-11,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,social,2023-12,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,social,2024-01,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#0,category:home_personal_wellness#0
+Nimbus Home,social,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,social,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,social,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Nimbus Home#5,brand:Nimbus Home#4
+Nimbus Home,social,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Nimbus Home,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Pinebrook Pet Co.,affiliate,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Pinebrook Pet Co.,affiliate,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Pinebrook Pet Co.,digital_video,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Pinebrook Pet Co.,digital_video,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Pinebrook Pet Co.,display,2025-02,0.49999999999999994,0.0,0.0,0.5,0.0,0.0,category:home_personal_wellness#1,brand:Pinebrook Pet Co.#0;brand:Pinebrook Pet Co.#4
+Pinebrook Pet Co.,display,2025-03,0.3444552299764068,0.0,0.0,0.3444552299764069,0.31108954004718614,0.0,category:home_personal_wellness#1,brand:Pinebrook Pet Co.#0;brand:Pinebrook Pet Co.#4;category:home_personal_wellness#1
+Pinebrook Pet Co.,display,2025-04,0.49999999999999994,0.0,0.0,0.5,0.0,0.0,category:home_personal_wellness#1,brand:Pinebrook Pet Co.#0;brand:Pinebrook Pet Co.#4
+Pinebrook Pet Co.,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Pinebrook Pet Co.,paid_search,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Pinebrook Pet Co.,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Pinebrook Pet Co.,retail_media,2024-10,0.0,0.0,0.0,0.0,0.0,1.0,brand:Pinebrook Pet Co.#1,brand:Pinebrook Pet Co.#1
+Pinebrook Pet Co.,retail_media,2025-02,0.0,0.0,0.0,0.0,0.0,1.0,brand:Pinebrook Pet Co.#2,brand:Pinebrook Pet Co.#2
+Pinebrook Pet Co.,retail_media,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Pinebrook Pet Co.,retail_media,2025-06,0.5075833831229255,0.0,0.0,0.0,0.0,0.49241661687707455,brand:Pinebrook Pet Co.#3,brand:Pinebrook Pet Co.#3
+Pinebrook Pet Co.,retail_media,2025-08,0.0,1.0,0.0,0.0,0.0,0.0,brand:Pinebrook Pet Co.#5,brand:Pinebrook Pet Co.#5
+Pinebrook Pet Co.,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Pinebrook Pet Co.,social,2024-10,0.0,0.0,0.0,0.0,0.0,1.0,brand:Pinebrook Pet Co.#1,brand:Pinebrook Pet Co.#1
+Pinebrook Pet Co.,social,2025-03,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#1,category:home_personal_wellness#1
+Pinebrook Pet Co.,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:home_personal_wellness#2,category:home_personal_wellness#2
+Ridgeway Grocery,affiliate,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,affiliate,2024-01,0.4039115324918129,0.0,0.0,0.0,0.0,0.5960884675081871,brand:Ridgeway Grocery#1,brand:Ridgeway Grocery#1
+Ridgeway Grocery,affiliate,2024-04,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,affiliate,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,affiliate,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,affiliate,2024-08,0.0,0.0,0.0,0.0,0.0,1.0,brand:Ridgeway Grocery#4,brand:Ridgeway Grocery#4
+Ridgeway Grocery,affiliate,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Ridgeway Grocery,affiliate,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Ridgeway Grocery,audio,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,audio,2023-11,0.0,0.0,0.0,1.0,0.0,0.0,brand:Ridgeway Grocery#0,brand:Ridgeway Grocery#0
+Ridgeway Grocery,audio,2024-04,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,audio,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,audio,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,audio,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Ridgeway Grocery,audio,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Ridgeway Grocery,display,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,display,2023-07,1.0,0.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#8
+Ridgeway Grocery,display,2023-08,1.0,0.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#8
+Ridgeway Grocery,display,2023-09,1.0,0.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#8
+Ridgeway Grocery,display,2023-11,0.0,0.0,0.0,1.0,0.0,0.0,brand:Ridgeway Grocery#0,brand:Ridgeway Grocery#0
+Ridgeway Grocery,display,2024-02,0.0,0.0,0.0,1.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#5
+Ridgeway Grocery,display,2024-03,0.0,0.0,0.0,1.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#5
+Ridgeway Grocery,display,2024-04,0.0,0.0,0.5,0.49999999999999994,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#5;brand:Ridgeway Grocery#7
+Ridgeway Grocery,display,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,display,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,display,2025-02,0.0,0.5330100976065175,0.0,0.0,0.4669899023934825,0.0,category:food_beverage#1,brand:Ridgeway Grocery#9;category:food_beverage#1
+Ridgeway Grocery,display,2025-03,0.0,1.0,0.0,0.0,0.0,0.0,category:food_beverage#1,brand:Ridgeway Grocery#9
+Ridgeway Grocery,display,2025-04,0.0,1.0,0.0,0.0,0.0,0.0,category:food_beverage#1,brand:Ridgeway Grocery#9
+Ridgeway Grocery,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Ridgeway Grocery,paid_search,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,paid_search,2023-09,0.42489174115226214,0.0,0.0,0.0,0.0,0.5751082588477379,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#6
+Ridgeway Grocery,paid_search,2024-04,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,paid_search,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,paid_search,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,paid_search,2024-08,0.0,0.0,0.0,0.0,0.0,1.0,brand:Ridgeway Grocery#4,brand:Ridgeway Grocery#4
+Ridgeway Grocery,paid_search,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Ridgeway Grocery,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Ridgeway Grocery,retail_media,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,retail_media,2024-01,0.4039115324918129,0.0,0.0,0.0,0.0,0.5960884675081871,brand:Ridgeway Grocery#1,brand:Ridgeway Grocery#1
+Ridgeway Grocery,retail_media,2024-04,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,retail_media,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,retail_media,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,retail_media,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Ridgeway Grocery,retail_media,2025-04,0.0,1.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#2,brand:Ridgeway Grocery#2
+Ridgeway Grocery,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Ridgeway Grocery,social,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,social,2023-07,1.0,0.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#8
+Ridgeway Grocery,social,2023-08,1.0,0.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#8
+Ridgeway Grocery,social,2023-09,0.7124458705761311,0.0,0.0,0.0,0.0,0.28755412942386893,brand:Ridgeway Grocery#8,brand:Ridgeway Grocery#6;brand:Ridgeway Grocery#8
+Ridgeway Grocery,social,2024-04,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,social,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,social,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,social,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Ridgeway Grocery,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Ridgeway Grocery,tv,2023-03,0.0,1.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#3,brand:Ridgeway Grocery#3
+Ridgeway Grocery,tv,2023-04,0.0,1.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#3,brand:Ridgeway Grocery#3
+Ridgeway Grocery,tv,2023-05,0.0,1.0,0.0,0.0,0.0,0.0,brand:Ridgeway Grocery#3,brand:Ridgeway Grocery#3
+Ridgeway Grocery,tv,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Ridgeway Grocery,tv,2024-04,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,tv,2024-05,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,tv,2024-06,0.0,0.0,1.0,0.0,0.0,0.0,brand:Ridgeway Grocery#7,brand:Ridgeway Grocery#7
+Ridgeway Grocery,tv,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Ridgeway Grocery,tv,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,affiliate,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Solstice Foods,affiliate,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,affiliate,2025-04,0.0,0.0,0.0,1.0,0.0,0.0,brand:Solstice Foods#8,brand:Solstice Foods#8
+Solstice Foods,affiliate,2025-05,0.0,0.0,0.0,1.0,0.0,0.0,brand:Solstice Foods#8,brand:Solstice Foods#8
+Solstice Foods,affiliate,2025-06,0.0,0.0,0.0,1.0,0.0,0.0,brand:Solstice Foods#8,brand:Solstice Foods#8
+Solstice Foods,affiliate,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,affiliate,2025-10,0.0,1.0,0.0,0.0,0.0,0.0,brand:Solstice Foods#1,brand:Solstice Foods#1
+Solstice Foods,digital_video,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Solstice Foods,digital_video,2024-05,0.0,0.0,0.0,1.0,0.0,0.0,brand:Solstice Foods#7,brand:Solstice Foods#7
+Solstice Foods,digital_video,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,digital_video,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,display,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Solstice Foods,display,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,display,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,paid_search,2023-06,0.5513538116256349,0.0,0.0,0.0,0.4486461883743651,0.0,category:food_beverage#0,brand:Solstice Foods#5;category:food_beverage#0
+Solstice Foods,paid_search,2023-07,1.0,0.0,0.0,0.0,0.0,0.0,category:food_beverage#0,brand:Solstice Foods#5
+Solstice Foods,paid_search,2023-08,1.0,0.0,0.0,0.0,0.0,0.0,category:food_beverage#0,brand:Solstice Foods#5
+Solstice Foods,paid_search,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,paid_search,2025-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#6,brand:Solstice Foods#6
+Solstice Foods,paid_search,2025-06,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#6,brand:Solstice Foods#6
+Solstice Foods,paid_search,2025-07,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#6,brand:Solstice Foods#6
+Solstice Foods,paid_search,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,retail_media,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Solstice Foods,retail_media,2023-10,0.0,0.0,0.0,1.0,0.0,0.0,brand:Solstice Foods#3,brand:Solstice Foods#3
+Solstice Foods,retail_media,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,retail_media,2025-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#0,brand:Solstice Foods#0
+Solstice Foods,retail_media,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,social,2023-06,0.5513538116256349,0.0,0.0,0.0,0.4486461883743651,0.0,category:food_beverage#0,brand:Solstice Foods#5;category:food_beverage#0
+Solstice Foods,social,2023-07,1.0,0.0,0.0,0.0,0.0,0.0,category:food_beverage#0,brand:Solstice Foods#5
+Solstice Foods,social,2023-08,1.0,0.0,0.0,0.0,0.0,0.0,category:food_beverage#0,brand:Solstice Foods#5
+Solstice Foods,social,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,social,2025-05,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#0,brand:Solstice Foods#0
+Solstice Foods,social,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Solstice Foods,tv,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Solstice Foods,tv,2024-05,0.0,0.0,0.0,1.0,0.0,0.0,brand:Solstice Foods#7,brand:Solstice Foods#7
+Solstice Foods,tv,2024-08,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#4,brand:Solstice Foods#4
+Solstice Foods,tv,2024-09,0.22878342118327546,0.0,0.0,0.0,0.0,0.7712165788167246,brand:Solstice Foods#4,brand:Solstice Foods#2;brand:Solstice Foods#4
+Solstice Foods,tv,2024-10,0.0,0.0,0.0,0.0,0.0,1.0,brand:Solstice Foods#4,brand:Solstice Foods#4
+Solstice Foods,tv,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Solstice Foods,tv,2025-09,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#2,category:food_beverage#2
+Verdant Snacks,affiliate,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Verdant Snacks,affiliate,2023-09,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,affiliate,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,affiliate,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,affiliate,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#6,brand:Verdant Snacks#6
+Verdant Snacks,affiliate,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Verdant Snacks,affiliate,2025-08,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,affiliate,2025-09,0.0,0.0,0.5002813905575696,0.0,0.4997186094424304,0.0,category:food_beverage#2,brand:Verdant Snacks#5;category:food_beverage#2
+Verdant Snacks,affiliate,2025-10,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,digital_video,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Verdant Snacks,digital_video,2023-09,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,digital_video,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,digital_video,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,digital_video,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#6,brand:Verdant Snacks#6
+Verdant Snacks,digital_video,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Verdant Snacks,digital_video,2025-08,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,digital_video,2025-09,0.0,0.0,0.5002813905575696,0.0,0.4997186094424304,0.0,category:food_beverage#2,brand:Verdant Snacks#5;category:food_beverage#2
+Verdant Snacks,digital_video,2025-10,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,display,2023-03,0.0,0.0,0.0,1.0,0.0,0.0,brand:Verdant Snacks#1,brand:Verdant Snacks#1
+Verdant Snacks,display,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Verdant Snacks,display,2023-09,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,display,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,display,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,display,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#6,brand:Verdant Snacks#6
+Verdant Snacks,display,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Verdant Snacks,display,2025-08,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,display,2025-09,0.0,0.0,0.5002813905575696,0.0,0.4997186094424304,0.0,category:food_beverage#2,brand:Verdant Snacks#5;category:food_beverage#2
+Verdant Snacks,display,2025-10,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,paid_search,2023-04,1.0,0.0,0.0,0.0,0.0,0.0,category:food_beverage#0,brand:Verdant Snacks#0
+Verdant Snacks,paid_search,2023-05,1.0,0.0,0.0,0.0,0.0,0.0,category:food_beverage#0,brand:Verdant Snacks#0
+Verdant Snacks,paid_search,2023-06,0.5513538116256349,0.0,0.0,0.0,0.4486461883743651,0.0,category:food_beverage#0,brand:Verdant Snacks#0;category:food_beverage#0
+Verdant Snacks,paid_search,2023-07,0.0,1.0,0.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#4
+Verdant Snacks,paid_search,2023-08,0.0,1.0,0.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#4
+Verdant Snacks,paid_search,2023-09,0.0,0.5,0.5,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3;brand:Verdant Snacks#4
+Verdant Snacks,paid_search,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,paid_search,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,paid_search,2024-07,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#6,brand:Verdant Snacks#6
+Verdant Snacks,paid_search,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Verdant Snacks,paid_search,2025-08,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,paid_search,2025-09,0.0,0.0,0.5002813905575696,0.0,0.4997186094424304,0.0,category:food_beverage#2,brand:Verdant Snacks#5;category:food_beverage#2
+Verdant Snacks,paid_search,2025-10,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,retail_media,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Verdant Snacks,retail_media,2023-09,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,retail_media,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,retail_media,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,retail_media,2024-07,0.5,0.0,0.5,0.0,0.0,0.0,brand:Verdant Snacks#6,brand:Verdant Snacks#2;brand:Verdant Snacks#6
+Verdant Snacks,retail_media,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Verdant Snacks,retail_media,2025-08,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,retail_media,2025-09,0.0,0.0,0.5002813905575696,0.0,0.4997186094424304,0.0,category:food_beverage#2,brand:Verdant Snacks#5;category:food_beverage#2
+Verdant Snacks,retail_media,2025-10,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,social,2023-06,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#0,category:food_beverage#0
+Verdant Snacks,social,2023-09,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,social,2023-10,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,social,2023-11,0.0,0.0,1.0,0.0,0.0,0.0,brand:Verdant Snacks#4,brand:Verdant Snacks#3
+Verdant Snacks,social,2024-07,0.5,0.0,0.5,0.0,0.0,0.0,brand:Verdant Snacks#6,brand:Verdant Snacks#2;brand:Verdant Snacks#6
+Verdant Snacks,social,2025-02,0.0,0.0,0.0,0.0,1.0,0.0,category:food_beverage#1,category:food_beverage#1
+Verdant Snacks,social,2025-08,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5
+Verdant Snacks,social,2025-09,0.0,0.0,0.5002813905575696,0.0,0.4997186094424304,0.0,category:food_beverage#2,brand:Verdant Snacks#5;category:food_beverage#2
+Verdant Snacks,social,2025-10,0.0,0.0,1.0,0.0,0.0,0.0,category:food_beverage#2,brand:Verdant Snacks#5

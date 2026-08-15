@@ -36,7 +36,7 @@ from __future__ import annotations
 
 import dataclasses
 import itertools
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -73,28 +73,28 @@ CPC_HAS_NO_COST_CHANNELS = {"tv", "ooh"}  # bought on impressions/GRPs, not clic
 
 BRANDS = [
     # name, spend_tier (relative scale), channels (6-8 of the 9), season_profile, launch_month_index (0 = full history)
-    dict(name="Solstice Foods", tier=3.0,
+    dict(name="Solstice Foods", tier=3.0, category="food_beverage",
          channels=["tv", "paid_search", "social", "display", "digital_video", "retail_media", "affiliate"],
          season="holiday_q4", launch_month=0),
-    dict(name="Nimbus Home", tier=1.0,
+    dict(name="Nimbus Home", tier=1.0, category="home_personal_wellness",
          channels=["display", "paid_search", "social", "digital_video", "audio", "retail_media"],
          season="steady", launch_month=0),
-    dict(name="Verdant Snacks", tier=0.5,
+    dict(name="Verdant Snacks", tier=0.5, category="food_beverage",
          channels=["social", "paid_search", "digital_video", "retail_media", "affiliate", "display"],
          season="summer_peak", launch_month=0),
-    dict(name="Crestline Beverages", tier=2.2,
+    dict(name="Crestline Beverages", tier=2.2, category="food_beverage",
          channels=["tv", "ooh", "paid_search", "social", "digital_video", "retail_media", "audio", "affiliate"],
          season="summer_peak", launch_month=0),
-    dict(name="Halcyon Personal Care", tier=0.7,
+    dict(name="Halcyon Personal Care", tier=0.7, category="home_personal_wellness",
          channels=["paid_search", "social", "display", "digital_video", "retail_media", "affiliate"],
          season="back_to_school", launch_month=0),
-    dict(name="Ridgeway Grocery", tier=1.6,
+    dict(name="Ridgeway Grocery", tier=1.6, category="food_beverage",
          channels=["tv", "paid_search", "social", "display", "retail_media", "affiliate", "audio"],
          season="holiday_q4", launch_month=0),
-    dict(name="Aster Wellness", tier=0.9,
+    dict(name="Aster Wellness", tier=0.9, category="home_personal_wellness",
          channels=["social", "paid_search", "digital_video", "display", "retail_media", "audio"],
          season="back_to_school", launch_month=0),
-    dict(name="Pinebrook Pet Co.", tier=0.35,
+    dict(name="Pinebrook Pet Co.", tier=0.35, category="home_personal_wellness",
          channels=["social", "paid_search", "display", "retail_media", "affiliate", "digital_video"],
          season="steady", launch_month=20),  # cold-start / short-history brand
 ]
@@ -139,25 +139,40 @@ def _ramp_shape(window_len: int, shape: str) -> np.ndarray:
 class SpikeEvent:
     event_id: int
     brand: str
-    channels: Tuple[str, ...]  # empty tuple => brand-wide (e.g. external demand, mix shift)
+    channels: Tuple[str, ...]  # empty tuple => brand-wide (mix shift)
     start_idx: int
     length: int
     shape: str  # "sudden" | "gradual"
     causes: Dict[str, float]  # cause_type -> weight (sums to 1 across causes in this event)
 
 
+@dataclasses.dataclass
+class CategoryDemandEvent:
+    event_id: int
+    category: str
+    brands: Tuple[str, ...]
+    start_idx: int
+    length: int
+    shape: str
+    weight: float
+
+    @property
+    def event_key(self) -> str:
+        return f"category:{self.category}#{self.event_id}"
+
+
 def _sample_events(rng: np.random.Generator, brand_cfg: dict, brand_channels: List[str]) -> List[SpikeEvent]:
-    """A brand gets 3-6 spike events scattered across its history, some multi-causal."""
-    # note: mix_shift and external_demand events are brand-wide (touch every active channel for
-    # the event's duration), so they contribute far more labeled (brand,channel,month) rows per
+    """A brand gets 6-10 local spike events scattered across its history, some multi-causal."""
+    # note: mix_shift events are brand-wide (touch every active channel for the event's duration),
+    # so they contribute far more labeled (brand,channel,month) rows per
     # event than the single/dual-channel cause types. Their sampling weight is kept lower than a
     # naive "equal chance per cause type" would suggest, so the labeled panel stays a minority of
     # total brand-channel-months (an "anomaly" that touches a quarter of the panel isn't anomalous).
     # Sampling weights are balanced on *independent events per cause*, not rows. Grouped CV
     # (one event = one group) means a cause with 100 rows from 6 events is a 6-sample problem,
     # and estimates at that n are worthless - mix_shift previously scored below its own base
-    # rate for exactly this reason. Brand-wide causes (mix shift, external demand) generate many
-    # rows per event, so they need a *lower* row share but a comparable event count.
+    # rate for exactly this reason. Brand-wide mix shifts generate many rows per event, so they
+    # need a *lower* row share but a comparable event count. Category demand is sampled separately.
     n_events = rng.integers(6, 11)
     combos = [
         (("genuine_efficiency_gain",), "gradual", 0.14),
@@ -166,8 +181,7 @@ def _sample_events(rng: np.random.Generator, brand_cfg: dict, brand_channels: Li
         (("spend_reduction_artifact", "mix_shift_artifact"), "gradual", 0.06),
         (("mix_shift_artifact",), "gradual", 0.12),
         (("survivorship_bias",), "sudden", 0.15),
-        (("external_demand_spike",), "sudden", 0.11),
-        (("creative_refresh",), "sudden", 0.16),
+        (("creative_refresh",), "sudden", 0.27),
     ]
     weights = np.array([c[2] for c in combos])
     weights = weights / weights.sum()
@@ -183,8 +197,8 @@ def _sample_events(rng: np.random.Generator, brand_cfg: dict, brand_channels: Li
         if usable_len - length - 1 <= 0:
             continue
         start_idx = launch + int(rng.integers(1, usable_len - length))
-        # mix_shift / external_demand are brand-wide phenomena; others hit 1-2 channels
-        if "mix_shift_artifact" in causes or "external_demand_spike" in causes:
+        # mix shifts are brand-wide phenomena; other local causes hit 1-2 channels
+        if "mix_shift_artifact" in causes:
             channels = tuple()
         else:
             k = min(len(brand_channels), rng.integers(1, 3))
@@ -193,6 +207,34 @@ def _sample_events(rng: np.random.Generator, brand_cfg: dict, brand_channels: Li
         raw = rng.dirichlet(np.ones(len(causes)) * 2.5)
         cause_weights = {c: float(w) for c, w in zip(causes, raw)}
         events.append(SpikeEvent(len(events), brand_cfg["name"], channels, start_idx, length, shape, cause_weights))
+    return events
+
+
+def _sample_category_demand_events(rng: np.random.Generator) -> List[CategoryDemandEvent]:
+    """Sample shared shocks that lift every brand in the affected category."""
+    categories: Dict[str, Tuple[str, ...]] = {}
+    for category in sorted({b["category"] for b in BRANDS}):
+        categories[category] = tuple(b["name"] for b in BRANDS if b["category"] == category)
+
+    events: List[CategoryDemandEvent] = []
+    for category, brands in categories.items():
+        # Three independent events per category keeps grouped CV feasible without making
+        # category-wide rows dominate the panel.
+        starts = rng.choice(np.arange(2, N_MONTHS - 3), size=3, replace=False)
+        for event_id, start_idx in enumerate(sorted(starts)):
+            shape = "sudden" if rng.random() < 0.8 else "gradual"
+            length = 1 if shape == "sudden" else 3
+            events.append(
+                CategoryDemandEvent(
+                    event_id=event_id,
+                    category=category,
+                    brands=brands,
+                    start_idx=int(start_idx),
+                    length=length,
+                    shape=shape,
+                    weight=float(rng.uniform(0.75, 1.0)),
+                )
+            )
     return events
 
 
@@ -205,8 +247,15 @@ def generate_dataset(seed: int = RNG_SEED) -> Dict[str, pd.DataFrame]:
     # brand-level idiosyncrasy so two brands on the same channel aren't identical
     brand_idio = {b["name"]: rng.uniform(0.85, 1.15) for b in BRANDS}
 
-    # a single shared external-demand latent series (category-wide), reused by "external_demand_spike" events
+    # Shared category-level demand timelines. Unlike brand-specific shocks, these events are
+    # sampled once and applied to every brand in a category, so "lifted all boats" is observable.
+    category_events = _sample_category_demand_events(rng)
     category_demand_shock = {b["name"]: np.ones(N_MONTHS) for b in BRANDS}
+    for ev in category_events:
+        idxs = np.arange(ev.start_idx, min(ev.start_idx + ev.length, N_MONTHS))
+        ramp = _ramp_shape(ev.length, ev.shape)[: len(idxs)]
+        for brand in ev.brands:
+            category_demand_shock[brand][idxs] *= 1 + 0.38 * ev.weight * ramp
 
     per_brand_channel_params = {}
     for b in BRANDS:
@@ -230,7 +279,7 @@ def generate_dataset(seed: int = RNG_SEED) -> Dict[str, pd.DataFrame]:
         spend_shock = {ch: np.ones(N_MONTHS) for ch in brand_channels}      # spend reduction
         surv_effect = {ch: np.zeros(N_MONTHS) for ch in brand_channels}     # survivorship bias, in [0, ~0.4]
         mix_shift_active = np.zeros(N_MONTHS)                               # brand-wide intensity in [0,1]
-        demand_shock = np.ones(N_MONTHS)                                    # brand-wide multiplier
+        demand_shock = category_demand_shock[b["name"]].copy()              # category-wide multiplier
 
         for ev in events:
             w = _ramp_shape(ev.length, ev.shape)
@@ -254,13 +303,8 @@ def generate_dataset(seed: int = RNG_SEED) -> Dict[str, pd.DataFrame]:
                     targets = ev.channels if ev.channels else brand_channels
                     for ch in targets:
                         surv_effect[ch][idxs] = np.maximum(surv_effect[ch][idxs], drop * w)
-                elif cause == "external_demand_spike":
-                    lift = 0.38 * mag
-                    demand_shock[idxs] *= (1 + lift * w)
                 elif cause == "mix_shift_artifact":
                     mix_shift_active[idxs] = np.maximum(mix_shift_active[idxs], mag * w)
-
-        category_demand_shock[b["name"]] = demand_shock
 
         # ---- 1) base spend intent per channel-month ----
         base_spend = {}
@@ -355,23 +399,44 @@ def generate_dataset(seed: int = RNG_SEED) -> Dict[str, pd.DataFrame]:
         b_cfg = next(b for b in BRANDS if b["name"] == ev.brand)
         targets = ev.channels if ev.channels else tuple(b_cfg["channels"])
         end_idx = min(ev.start_idx + ev.length - 1, N_MONTHS - 1)
+        event_key = f"brand:{ev.brand}#{ev.event_id}"
         event_rows.append(dict(
-            event_id=ev.event_id, brand=ev.brand, channels=",".join(targets),
+            event_id=ev.event_id, event_key=event_key, brand=ev.brand, brands=ev.brand,
+            category=b_cfg["category"], channels=",".join(targets),
             scope="channel" if ev.channels else "brand_wide",
             start_month=str(MONTHS[ev.start_idx]), end_month=str(MONTHS[end_idx]),
             shape=ev.shape, causes=";".join(f"{c}:{w:.2f}" for c, w in ev.causes.items()),
         ))
         for ch in targets:
             for t in range(ev.start_idx, end_idx + 1):
-                row = dict(brand=ev.brand, channel=ch, month=str(MONTHS[t]), event_id=ev.event_id, shape=ev.shape)
+                row = dict(brand=ev.brand, channel=ch, month=str(MONTHS[t]),
+                           event_id=ev.event_id, event_key=event_key, shape=ev.shape)
                 for c in CAUSE_TYPES:
                     row[c] = ev.causes.get(c, 0.0)
                 label_rows.append(row)
 
+    for ev in category_events:
+        end_idx = min(ev.start_idx + ev.length - 1, N_MONTHS - 1)
+        targets = sorted({ch for b in BRANDS if b["name"] in ev.brands for ch in b["channels"]})
+        event_rows.append(dict(
+            event_id=ev.event_id, event_key=ev.event_key, brand="CATEGORY", brands=",".join(ev.brands),
+            category=ev.category, channels=",".join(targets), scope="category_wide",
+            start_month=str(MONTHS[ev.start_idx]), end_month=str(MONTHS[end_idx]),
+            shape=ev.shape, causes=f"external_demand_spike:{ev.weight:.2f}",
+        ))
+        for brand in ev.brands:
+            brand_cfg = next(b for b in BRANDS if b["name"] == brand)
+            for ch in brand_cfg["channels"]:
+                for t in range(max(ev.start_idx, brand_cfg["launch_month"]), end_idx + 1):
+                    row = dict(brand=brand, channel=ch, month=str(MONTHS[t]),
+                               event_id=ev.event_id, event_key=ev.event_key, shape=ev.shape)
+                    for cause in CAUSE_TYPES:
+                        row[cause] = ev.weight if cause == "external_demand_spike" else 0.0
+                    label_rows.append(row)
+
     events_df = pd.DataFrame(event_rows)
     labels_df = pd.DataFrame(label_rows)
     if not labels_df.empty:
-        labels_df["event_key"] = labels_df["brand"] + "#" + labels_df["event_id"].astype(str)
         # group_id for leakage-free cross-validation. One event spans several months and often
         # several channels, so its rows are near-duplicates in feature space; splitting on rows
         # would put the same shock in train and test. Rows are therefore grouped by event - and
@@ -405,7 +470,14 @@ def generate_dataset(seed: int = RNG_SEED) -> Dict[str, pd.DataFrame]:
         for c in CAUSE_TYPES:
             agg[c] = np.where(totals > 0, agg[c] / totals.replace(0, np.nan), 0.0)
         groups = labels_df.groupby(["brand", "channel", "month"])["group_id"].first().reset_index()
+        event_keys = (
+            labels_df.groupby(["brand", "channel", "month"])["event_key"]
+            .agg(lambda s: ";".join(sorted(set(s))))
+            .rename("event_keys")
+            .reset_index()
+        )
         labels_df = agg.merge(groups, on=["brand", "channel", "month"], how="left")
+        labels_df = labels_df.merge(event_keys, on=["brand", "channel", "month"], how="left")
 
     return dict(panel=panel, events=events_df, labels=labels_df)
 

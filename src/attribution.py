@@ -1,6 +1,6 @@
 """
-Attribution model: given a flagged (brand, channel, month) anomaly, output a
-probability *distribution* over the six cause types, not a single label.
+Attribution model: given a flagged (brand, channel, month) anomaly, output calibrated
+marginal likelihoods for all six cause types, not a single label or normalized softmax.
 
 Framing (see design_proposal.md "Causal honesty"): this model is a
 differential-diagnosis tool, not a causal-inference engine. It is trained to
@@ -25,13 +25,16 @@ confirmations on real flagged anomalies (human-in-the-loop active learning
 
 from __future__ import annotations
 
-from typing import Dict, List
+from typing import Dict
 
 import numpy as np
 import pandas as pd
 from lightgbm import LGBMClassifier
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.metrics import average_precision_score, brier_score_loss
+from sklearn.pipeline import make_pipeline
 
 from anomaly_detection import build_scores
 from data_generator import CAUSE_TYPES
@@ -39,6 +42,51 @@ from data_generator import CAUSE_TYPES
 PRESENCE_THRESHOLD = 0.20  # a cause's synthetic label weight must clear this to count as "present"
 N_FOLDS = 5
 CO_MOVEMENT_Z = 1.0  # bar for "this month moved" when measuring brand/market co-movement
+PROB_EPS = 1e-6
+
+
+def _new_estimator(seed: int):
+    """One fitted preprocessing/model unit; missing-value policy lives inside it."""
+    return make_pipeline(
+        SimpleImputer(strategy="median", keep_empty_features=True),
+        LGBMClassifier(n_estimators=60, num_leaves=7, min_child_samples=5,
+                       learning_rate=0.08, random_state=seed, verbosity=-1),
+    )
+
+
+def _logit_feature(probabilities: np.ndarray) -> np.ndarray:
+    p = np.clip(np.asarray(probabilities, dtype=float), PROB_EPS, 1 - PROB_EPS)
+    return np.log(p / (1 - p)).reshape(-1, 1)
+
+
+def _fit_platt(raw_probabilities: np.ndarray, y: np.ndarray) -> LogisticRegression | None:
+    if len(np.unique(y)) < 2:
+        return None
+    calibrator = LogisticRegression(C=1.0, solver="lbfgs", random_state=17)
+    calibrator.fit(_logit_feature(raw_probabilities), y)
+    return calibrator
+
+
+def _apply_calibrator(calibrator: LogisticRegression | None,
+                      raw_probabilities: np.ndarray) -> np.ndarray:
+    if calibrator is None:
+        return np.asarray(raw_probabilities, dtype=float)
+    return calibrator.predict_proba(_logit_feature(raw_probabilities))[:, 1]
+
+
+class CalibratedCauseModel:
+    """Average group-held-out fold models, each with its own nested Platt calibrator."""
+
+    def __init__(self, fold_models: list[tuple[object, LogisticRegression | None]]):
+        self.fold_models = fold_models
+
+    def predict_proba(self, x) -> np.ndarray:
+        calibrated = []
+        for estimator, calibrator in self.fold_models:
+            raw = estimator.predict_proba(x)[:, 1]
+            calibrated.append(_apply_calibrator(calibrator, raw))
+        positive = np.mean(np.vstack(calibrated), axis=0)
+        return np.column_stack([1 - positive, positive])
 
 
 def _z_col(panel: pd.DataFrame, metric: str, colname: str) -> pd.DataFrame:
@@ -177,8 +225,6 @@ def build_training_set(feat: pd.DataFrame, labels_df: pd.DataFrame, panel: pd.Da
 
     train = pd.concat([positives, negatives], ignore_index=True)
     train = train.dropna(subset=FEATURE_COLS, how="all")
-    for col in FEATURE_COLS:
-        train[col] = train[col].fillna(train[col].median())
     if train["group_id"].isna().any():
         raise ValueError("every training row needs a group_id for leakage-free CV")
     return train
@@ -186,19 +232,19 @@ def build_training_set(feat: pd.DataFrame, labels_df: pd.DataFrame, panel: pd.Da
 
 def train_and_evaluate(train: pd.DataFrame, seed: int = 11) -> dict:
     """
-    Out-of-fold evaluation with StratifiedGroupKFold keyed on `group_id` (one injected
-    event = one group).
+    Nested out-of-fold evaluation with StratifiedGroupKFold keyed on `group_id` (one injected
+    event = one group), median imputation fitted inside every fold, and Platt calibration fitted
+    on inner group-held-out predictions.
 
     This is not a cosmetic choice. A single event spans up to 3 months x several channels,
     so its rows are near-duplicates in feature space; plain StratifiedKFold splits on rows
-    and puts the same shock in train and test. Measured on this dataset, that leak inflated
-    PR-AUC substantially - external_demand_spike scored 0.57 under row-wise CV versus 0.10
-    under event-wise CV (i.e. essentially no skill, reported as skill). Grouped CV is the
-    honest estimate of how the model behaves on an event it has never seen.
+    and puts the same shock in train and test. Grouped CV is the honest estimate of how the model
+    behaves on an event it has never seen. Calibration is nested so the event being evaluated
+    influences neither its base prediction nor the raw-score-to-likelihood mapping.
     """
-    X = train[FEATURE_COLS].to_numpy()
+    X = train[FEATURE_COLS]
     groups = train["group_id"].to_numpy()
-    models: Dict[str, LGBMClassifier] = {}
+    models: Dict[str, CalibratedCauseModel] = {}
     oof_probs = {c: np.zeros(len(train)) for c in CAUSE_TYPES}
     metrics_rows = []
 
@@ -208,25 +254,53 @@ def train_and_evaluate(train: pd.DataFrame, seed: int = 11) -> dict:
         if y.sum() < N_FOLDS or y.sum() == len(y) or n_pos_groups < N_FOLDS:
             # too few positives for this cause to cross-validate meaningfully; fit on all data,
             # report as "insufficient synthetic examples" rather than a fabricated score
-            model = LGBMClassifier(n_estimators=60, num_leaves=7, min_child_samples=5,
-                                    learning_rate=0.08, random_state=seed, verbosity=-1)
+            model = _new_estimator(seed)
             model.fit(X, y)
-            models[cause] = model
+            models[cause] = CalibratedCauseModel([(model, None)])
             metrics_rows.append(dict(cause=cause, n_pos=int(y.sum()), n_pos_events=int(n_pos_groups),
-                                      pr_auc=np.nan, base_rate=np.nan, lift_over_base=np.nan, brier=np.nan,
+                                      pr_auc=np.nan, base_rate=np.nan, lift_over_base=np.nan,
+                                      brier=np.nan, brier_raw=np.nan,
                                       note="too few independent events for reliable grouped CV"))
             oof_probs[cause] = model.predict_proba(X)[:, 1]
             continue
 
-        sgkf = StratifiedGroupKFold(n_splits=N_FOLDS, shuffle=True, random_state=seed)
-        for tr_idx, te_idx in sgkf.split(X, y, groups):
-            m = LGBMClassifier(n_estimators=60, num_leaves=7, min_child_samples=5,
-                                learning_rate=0.08, random_state=seed, verbosity=-1)
-            m.fit(X[tr_idx], y[tr_idx])
-            oof_probs[cause][te_idx] = m.predict_proba(X[te_idx])[:, 1]
+        raw_oof = np.zeros(len(train))
+        calibrated_oof = np.zeros(len(train))
+        serving_folds = []
+        outer_cv = StratifiedGroupKFold(n_splits=N_FOLDS, shuffle=True, random_state=seed)
+        for outer_fold, (tr_idx, te_idx) in enumerate(outer_cv.split(X, y, groups)):
+            X_train, y_train, groups_train = X.iloc[tr_idx], y[tr_idx], groups[tr_idx]
 
-        pr_auc = average_precision_score(y, oof_probs[cause])
-        brier = brier_score_loss(y, oof_probs[cause])
+            # Nested group-held-out raw predictions fit the calibrator without allowing an
+            # event's labels into either its base prediction or its calibration mapping.
+            n_inner_pos_groups = len(np.unique(groups_train[y_train == 1]))
+            n_inner_neg_groups = len(np.unique(groups_train[y_train == 0]))
+            n_inner = min(4, n_inner_pos_groups, n_inner_neg_groups)
+            inner_raw = np.zeros(len(tr_idx))
+            if n_inner >= 2:
+                inner_cv = StratifiedGroupKFold(
+                    n_splits=n_inner, shuffle=True, random_state=seed + 100 + outer_fold
+                )
+                for inner_tr, inner_te in inner_cv.split(X_train, y_train, groups_train):
+                    inner_model = _new_estimator(seed + 200 + outer_fold)
+                    inner_model.fit(X_train.iloc[inner_tr], y_train[inner_tr])
+                    inner_raw[inner_te] = inner_model.predict_proba(X_train.iloc[inner_te])[:, 1]
+                calibrator = _fit_platt(inner_raw, y_train)
+            else:
+                calibrator = None
+
+            outer_model = _new_estimator(seed + outer_fold)
+            outer_model.fit(X_train, y_train)
+            raw_test = outer_model.predict_proba(X.iloc[te_idx])[:, 1]
+            raw_oof[te_idx] = raw_test
+            calibrated_oof[te_idx] = _apply_calibrator(calibrator, raw_test)
+            serving_folds.append((outer_model, calibrator))
+
+        models[cause] = CalibratedCauseModel(serving_folds)
+        oof_probs[cause] = calibrated_oof
+        pr_auc = average_precision_score(y, calibrated_oof)
+        brier = brier_score_loss(y, calibrated_oof)
+        brier_raw = brier_score_loss(y, raw_oof)
         # PR-AUC is not comparable across causes with different prevalence: a no-skill model
         # scores the base rate. lift = pr_auc / base_rate is the honest cross-cause read, and
         # lift <= 1 means the model has learned nothing for that cause.
@@ -234,12 +308,8 @@ def train_and_evaluate(train: pd.DataFrame, seed: int = 11) -> dict:
         lift = pr_auc / base_rate if base_rate > 0 else np.nan
         metrics_rows.append(dict(cause=cause, n_pos=int(y.sum()), n_pos_events=int(n_pos_groups),
                                   pr_auc=pr_auc, base_rate=base_rate, lift_over_base=lift,
-                                  brier=brier, note="" if lift > 1.5 else "WEAK: at/near chance"))
-
-        final_model = LGBMClassifier(n_estimators=60, num_leaves=7, min_child_samples=5,
-                                      learning_rate=0.08, random_state=seed, verbosity=-1)
-        final_model.fit(X, y)
-        models[cause] = final_model
+                                  brier=brier, brier_raw=brier_raw,
+                                  note="" if lift > 1.5 else "WEAK: at/near chance"))
 
     oof_df = pd.DataFrame(oof_probs)
     event_mask = train[CAUSE_TYPES].sum(axis=1) > 0  # only rows that actually had an injected cause
@@ -254,14 +324,12 @@ def train_and_evaluate(train: pd.DataFrame, seed: int = 11) -> dict:
     return dict(models=models, metrics=metrics, oof_probs=oof_df, top1_hit_rate=top1_hit_rate)
 
 
-def predict_distribution(models: Dict[str, LGBMClassifier], feat_row: pd.Series) -> pd.DataFrame:
-    x = feat_row[FEATURE_COLS].astype(float).fillna(0.0).to_numpy().reshape(1, -1)
+def predict_distribution(models: Dict[str, CalibratedCauseModel], feat_row: pd.Series) -> pd.DataFrame:
+    # Preserve NaNs: each fitted pipeline owns the exact median imputation learned on its fold.
+    x = feat_row[FEATURE_COLS].astype(float).to_frame().T
     raw = {c: float(models[c].predict_proba(x)[0, 1]) for c in CAUSE_TYPES}
-    total = sum(raw.values()) or 1.0
-    normalized = {c: v / total for c, v in raw.items()}
     return pd.DataFrame({"cause": CAUSE_TYPES,
-                          "probability": [raw[c] for c in CAUSE_TYPES],
-                          "relative_share": [normalized[c] for c in CAUSE_TYPES]}).sort_values(
+                          "probability": [raw[c] for c in CAUSE_TYPES]}).sort_values(
         "probability", ascending=False
     ).reset_index(drop=True)
 
@@ -296,16 +364,17 @@ def narrate(row: pd.Series, dist: pd.DataFrame, top_k: int = 2, confident_at: fl
 
     The displayed shape comes from the detector's `alert_source` - the signal that actually
     fired - not from the `shape_sudden` model feature, which compares |sudden_z| to |gradual_z|
-    and disagrees with the firing signal on ~13% of flagged months. Telling an analyst
+    and can disagree with the firing signal. Telling an analyst
     "sudden, single-month" when the alert came from the 3-month ramp sends them to the wrong
     part of the chart.
     """
-    z = float(row.get("roas_sudden_z", np.nan))
     source = row.get("alert_source")
     if source not in ("sudden", "gradual"):  # fall back for callers without detector output
         source = "sudden" if row.get("shape_sudden", 1) == 1 else "gradual"
+    score_col = "roas_sudden_z" if source == "sudden" else "roas_gradual_z"
+    z = float(row.get(score_col, np.nan))
     shape = "sudden, single-month" if source == "sudden" else "gradual, multi-month"
-    header = (f"{row['brand']} / {row['channel']} / {row['month']}: ROAS moved {z:+.1f} "
+    header = (f"{row['brand']} / {row['channel']} / {row['month']}: alert score {z:+.1f} "
               f"robust std. devs vs. expected ({shape} pattern).")
 
     if np.isfinite(z) and z < 0:
@@ -313,17 +382,18 @@ def narrate(row: pd.Series, dist: pd.DataFrame, top_k: int = 2, confident_at: fl
                          "metric *increases* only, so no attribution is offered. Route to the "
                          "standard performance-decline review instead.")
 
-    top = dist.head(top_k)
-    if len(top) == 0 or float(top.iloc[0]["probability"]) < confident_at:
-        best = "" if len(top) == 0 else (
-            f"\n  Closest match was {top.iloc[0]['cause'].replace('_', ' ')} at "
-            f"{top.iloc[0]['probability']:.0%}, below the {confident_at:.0%} confidence bar."
+    ranked = dist.sort_values("probability", ascending=False)
+    top = ranked[ranked["probability"] >= confident_at].head(top_k)
+    if len(top) == 0:
+        best = "" if len(ranked) == 0 else (
+            f"\n  Closest match was {ranked.iloc[0]['cause'].replace('_', ' ')} at "
+            f"{ranked.iloc[0]['probability']:.0%}, below the {confident_at:.0%} confidence bar."
         )
         return header + "\n  " + LOW_CONFIDENCE_NOTE + best
 
     parts = [
-        f"{r['cause'].replace('_', ' ')} ({r['probability']:.0%} likely, "
-        f"{r['relative_share']:.0%} of the explained signal): {NARRATIVE_TEMPLATES[r['cause']]}"
+        f"{r['cause'].replace('_', ' ')} ({r['probability']:.0%} calibrated likelihood): "
+        f"{NARRATIVE_TEMPLATES[r['cause']]}"
         for _, r in top.iterrows()
     ]
     return header + "\n  Most likely drivers -\n  - " + "\n  - ".join(parts)

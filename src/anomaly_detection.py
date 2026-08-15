@@ -234,14 +234,74 @@ def select_threshold(scored_with_gt: pd.DataFrame, cost_ratio_fn_over_fp: float 
                 n_pos=int(n_pos), n_neg=int(n_neg))
 
 
+def evaluate_at_threshold(scored_with_gt: pd.DataFrame, threshold: float) -> dict:
+    """Evaluate one fixed operating threshold without tuning it on these rows."""
+    d = scored_with_gt.dropna(subset=["alert_score"])
+    pred_pos = d["alert_score"] >= threshold
+    tp = int((pred_pos & d["is_true_spike"]).sum())
+    fp = int((pred_pos & ~d["is_true_spike"]).sum())
+    fn = int(((~pred_pos) & d["is_true_spike"]).sum())
+    precision = tp / (tp + fp) if (tp + fp) else np.nan
+    recall = tp / (tp + fn) if (tp + fn) else np.nan
+    return dict(
+        threshold=float(threshold), precision=float(precision), recall=float(recall),
+        tp=tp, fp=fp, fn=fn, n_rows=int(len(d)),
+    )
+
+
+def cross_validate_threshold_by_brand(scored_with_gt: pd.DataFrame, n_splits: int = 4,
+                                      seed: int = 19) -> dict:
+    """Tune on calibration brands and report predictions only on unseen brands."""
+    brands = np.array(sorted(scored_with_gt["brand"].dropna().unique()), dtype=object)
+    if not 2 <= n_splits <= len(brands):
+        raise ValueError("n_splits must be between 2 and the number of brands")
+    rng = np.random.default_rng(seed)
+    rng.shuffle(brands)
+
+    folds = []
+    totals = dict(tp=0, fp=0, fn=0, n_rows=0)
+    for fold_idx, holdout in enumerate(np.array_split(brands, n_splits), start=1):
+        holdout_brands = sorted(holdout.tolist())
+        calibration_brands = sorted(set(brands.tolist()) - set(holdout_brands))
+        calibration = scored_with_gt[scored_with_gt["brand"].isin(calibration_brands)]
+        test = scored_with_gt[scored_with_gt["brand"].isin(holdout_brands)]
+        selected = select_threshold(calibration)
+        metrics = evaluate_at_threshold(test, selected["best_threshold"])
+        for key in totals:
+            totals[key] += metrics[key]
+        folds.append(
+            dict(
+                fold=fold_idx,
+                calibration_brands=calibration_brands,
+                holdout_brands=holdout_brands,
+                calibration_threshold=selected["best_threshold"],
+                calibration_precision=selected["precision"],
+                calibration_recall=selected["recall"],
+                holdout_precision=metrics["precision"],
+                holdout_recall=metrics["recall"],
+                tp=metrics["tp"], fp=metrics["fp"], fn=metrics["fn"], n_rows=metrics["n_rows"],
+            )
+        )
+
+    precision = totals["tp"] / (totals["tp"] + totals["fp"]) if totals["tp"] + totals["fp"] else np.nan
+    recall = totals["tp"] / (totals["tp"] + totals["fn"]) if totals["tp"] + totals["fn"] else np.nan
+    return dict(
+        precision=float(precision), recall=float(recall), folds=folds,
+        tp=totals["tp"], fp=totals["fp"], fn=totals["fn"], n_rows=totals["n_rows"],
+    )
+
+
 def detect(panel: pd.DataFrame, labels_df: pd.DataFrame, metric: str = "roas",
             direction: str = "up") -> dict:
     scored = build_scores(panel, metric=metric, direction=direction)
     scored_gt = label_ground_truth(scored, labels_df)
+    cv_evaluation = cross_validate_threshold_by_brand(scored_gt)
+    # The deployment threshold is calibrated on the full synthetic panel only after the
+    # brand-held-out estimate above has been produced. It is not the reported evaluation score.
     sel = select_threshold(scored_gt)
     scored_gt["flagged"] = scored_gt["alert_score"] >= sel["best_threshold"]
     scored_gt["spike_type"] = np.where(scored_gt["flagged"], scored_gt["alert_source"], None)
-    return dict(scored=scored_gt, threshold_selection=sel)
+    return dict(scored=scored_gt, threshold_selection=sel, cv_evaluation=cv_evaluation)
 
 
 if __name__ == "__main__":
@@ -250,5 +310,7 @@ if __name__ == "__main__":
     data = generate_dataset()
     result = detect(data["panel"], data["labels"])
     sel = result["threshold_selection"]
-    print(f"chosen threshold={sel['best_threshold']:.2f} precision={sel['precision']:.2f} recall={sel['recall']:.2f}")
+    cv = result["cv_evaluation"]
+    print(f"deployment threshold={sel['best_threshold']:.2f} "
+          f"brand-held-out precision={cv['precision']:.2f} recall={cv['recall']:.2f}")
     print(result["scored"]["flagged"].sum(), "months flagged out of", len(result["scored"]))
